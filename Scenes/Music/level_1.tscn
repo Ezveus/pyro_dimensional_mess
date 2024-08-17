@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dbg5voxajegj2"]
 
-[ext_resource type="AudioStream" uid="uid://cs2mmk5477g1k" path="res://Assets/Music/level_1.wav" id="1_v1f36"]
+[ext_resource type="AudioStream" uid="uid://dth3gxmdllt65" path="res://Assets/Music/level_1.wav" id="1_v1f36"]
 
 [node name="Level1" type="AudioStreamPlayer"]
 stream = ExtResource("1_v1f36")
