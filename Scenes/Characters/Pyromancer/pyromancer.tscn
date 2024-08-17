@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cb5xiuocagj3l"]
+[gd_scene load_steps=41 format=3 uid="uid://cb5xiuocagj3l"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/pyromancer.gd" id="1_jtlxj"]
 [ext_resource type="Texture2D" uid="uid://blg67oah41j14" path="res://Assets/Graphics/Pyromancer/IDLE.png" id="1_rndbv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcy3ttc3h6ly3" path="res://Assets/Graphics/Pyromancer/DEATH.png" id="3_aqsng"]
 [ext_resource type="Texture2D" uid="uid://bv4jxp3qcoqnt" path="res://Assets/Graphics/Pyromancer/HURT.png" id="4_6gdol"]
 [ext_resource type="Texture2D" uid="uid://6grmwbd5a3nl" path="res://Assets/Graphics/Pyromancer/WALK.png" id="6_0ddwy"]
+[ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/HealthBar.gd" id="7_jmje5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjnnb"]
 atlas = ExtResource("2_opnwc")
@@ -246,7 +247,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_44344")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -263,7 +264,7 @@ script = ExtResource("1_jtlxj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -2)
 sprite_frames = SubResource("SpriteFrames_xqdlg")
-animation = &"walk"
+animation = &"run"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -278,3 +279,22 @@ collision_mask = 2
 position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_2rmd3")
 debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
+
+[node name="RecoveryTimer" type="Timer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 15.0
+offset_bottom = -23.0
+max_value = 3.0
+step = 1.0
+value = 3.0
+show_percentage = false
+script = ExtResource("7_jmje5")
+
+[connection signal="dead" from="." to="." method="_on_dead"]
+[connection signal="hurting" from="." to="." method="_on_hurting"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
+[connection signal="value_changed" from="HealthBar" to="HealthBar" method="_on_value_changed"]

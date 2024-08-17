@@ -1,68 +1,59 @@
-extends CharacterBody2D
+extends "res://Scenes/Utils/Mob/mob.gd"
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -300.0
-const DAMAGE_RATE = 10.0
 
-var health = 100.0
+@onready var recovery_timer: Timer = $RecoveryTimer
+@onready var health_bar: ProgressBar = $HealthBar
 
-signal hurting
-signal dead
+func _ready():
+	jump_velocity = -300
+	health = 3
+	health_bar.max_value = health
+	health_bar.value = health
+	damage_rate = 50
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+func update_state():
+	if state == State.DYING:
+		return
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurt_box: Area2D = $Hurtbox
-
-func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 
-	# Add the gravity.
 	if is_on_floor():
 		# Handle jump.
 		if Input.is_action_just_pressed("jump"):
-			animated_sprite.play('jump')
-			velocity.y = JUMP_VELOCITY
-		elif direction == 0:
-			animated_sprite.play('idle')
+			state = State.JUMPING
+		elif direction > 0:
+			animated_sprite.flip_h = false
+			state = State.RUNNING
+		elif direction < 0:
+			animated_sprite.flip_h = true
+			state = State.RUNNING
+		elif can_be_hurt && hurt_box.get_overlapping_bodies().size() > 0:
+			state = State.HURTING
 		else:
-			animated_sprite.play('walk')
+			state = State.IDLE
 	else:
-		animated_sprite.play('jump')
-		velocity.y += gravity * delta
-
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
+		state = State.FALLING
 
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+func _on_hurting():
+	if state == State.HURTING:
+		health -= 1
+		health_bar.value = health
+		can_be_hurt = false
+		recovery_timer.start()
 
-	take_damage_from_mobs(delta)
+		if health <= 0:
+			state = State.DYING
+		else:
+			state = State.IDLE
 
-func take_damage_from_mobs(delta):
-	var overlapping_mobs = hurt_box.get_overlapping_bodies()
-	var damage_count = DAMAGE_RATE * overlapping_mobs.size() * delta
+func _on_recovery_timer_timeout():
+	can_be_hurt = true
 
-	if damage_count > 0:
-		for mob in overlapping_mobs:
-			if mob.has_method('attack'):
-				mob.attack()
-		health -= damage_count
-		animated_sprite.play('hurt')
-		hurting.emit()
-	else:
-		animated_sprite.play('idle')
-
-	if health <= 0:
-		dead.emit()
-
-func die():
-	animated_sprite.play('death')
-	dead.emit()
+func _on_hurtbox_body_entered(body):
+	state = State.HURTING

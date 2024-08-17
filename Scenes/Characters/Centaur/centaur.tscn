@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://byiern4m1i4kd"]
+[gd_scene load_steps=5 format=3 uid="uid://byiern4m1i4kd"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Centaur/centaur.gd" id="1_4rsg5"]
 [ext_resource type="SpriteFrames" uid="uid://cn78qrst8ab7y" path="res://Scenes/Characters/Centaur/centaur.tres" id="2_2c4iq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jix4n"]
-size = Vector2(46, 54)
+size = Vector2(46, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsbql"]
+size = Vector2(51, 56)
 
 [node name="Centaur" type="CharacterBody2D"]
 collision_layer = 2
@@ -22,5 +25,16 @@ autoplay = "idle"
 frame_progress = 0.247432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(4, 18)
+position = Vector2(4, 19)
 shape = SubResource("RectangleShape2D_jix4n")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(3.5, 19)
+shape = SubResource("RectangleShape2D_wsbql")
+debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
+
+[connection signal="dead" from="." to="." method="_on_dead"]

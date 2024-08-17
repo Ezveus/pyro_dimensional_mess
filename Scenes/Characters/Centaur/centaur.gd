@@ -20,3 +20,6 @@ func scan_for_enemies():
 		velocity = global_position.direction_to(collider.global_position) * SPEED
 	else:
 		state = State.IDLE
+
+func _on_dead():
+	call_deferred("queue_free")
