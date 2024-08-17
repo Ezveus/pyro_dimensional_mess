@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
@@ -27,6 +26,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gdquest_colorpicker_presets/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
