@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cb5xiuocagj3l"]
+[gd_scene load_steps=40 format=3 uid="uid://cb5xiuocagj3l"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/pyromancer.gd" id="1_jtlxj"]
 [ext_resource type="Texture2D" uid="uid://blg67oah41j14" path="res://Assets/Graphics/Pyromancer/IDLE.png" id="1_rndbv"]
@@ -251,9 +251,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vevmp"]
-size = Vector2(23, 49)
+size = Vector2(25, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rmd3"]
+size = Vector2(32, 56)
 
 [node name="Pyromancer" type="CharacterBody2D"]
+collision_mask = 9
 script = ExtResource("1_jtlxj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -263,5 +267,14 @@ animation = &"walk"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 8.5)
+position = Vector2(-0.5, 8.5)
 shape = SubResource("RectangleShape2D_vevmp")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1, 8)
+shape = SubResource("RectangleShape2D_2rmd3")
+debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)

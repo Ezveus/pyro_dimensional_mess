@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://byiern4m1i4kd"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/Centaur/centaur.gd" id="1_4rsg5"]
+[ext_resource type="SpriteFrames" uid="uid://cn78qrst8ab7y" path="res://Scenes/Characters/Centaur/centaur.tres" id="2_2c4iq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jix4n"]
+size = Vector2(46, 54)
+
+[node name="Centaur" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 12
+script = ExtResource("1_4rsg5")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-10, 2.08165e-12)
+target_position = Vector2(-1000, 2.08165e-12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_2c4iq")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.247432
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 18)
+shape = SubResource("RectangleShape2D_jix4n")

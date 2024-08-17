@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtsndo44v6dwr"]
+[gd_scene load_steps=14 format=3 uid="uid://dtsndo44v6dwr"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1/level_1.gd" id="1_0ndgi"]
 [ext_resource type="Texture2D" uid="uid://c7wptd8jrl4h8" path="res://Assets/Graphics/Tilesets/Tiles/Tileset Outside.png" id="2_o13yh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cb5xiuocagj3l" path="res://Scenes/Characters/Pyromancer/pyromancer.tscn" id="5_l7frl"]
 [ext_resource type="PackedScene" uid="uid://dbtvbf4j1l5a3" path="res://Scenes/Utils/Killzone/killzone.tscn" id="7_tao84"]
 [ext_resource type="PackedScene" uid="uid://dbg5voxajegj2" path="res://Scenes/Music/level_1.tscn" id="9_d2nla"]
+[ext_resource type="PackedScene" uid="uid://byiern4m1i4kd" path="res://Scenes/Characters/Centaur/centaur.tscn" id="10_x45yo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jl21p"]
 texture = ExtResource("2_o13yh")
@@ -714,7 +715,8 @@ texture = ExtResource("2_o13yh")
 17:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_n6a0x"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_jl21p")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6288"]
@@ -785,5 +787,8 @@ position = Vector2(-33, 1740)
 shape = SubResource("WorldBoundaryShape2D_c6288")
 
 [node name="Level1" parent="." instance=ExtResource("9_d2nla")]
+
+[node name="Centaur" parent="." instance=ExtResource("10_x45yo")]
+position = Vector2(1382, 1459)
 
 [connection signal="dead" from="Pyromancer" to="." method="_on_pyromancer_dead"]
