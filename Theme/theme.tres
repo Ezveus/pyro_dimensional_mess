@@ -1,21 +1,26 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cdwqgphxj12ib"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cdwqgphxj12ib"]
 
 [ext_resource type="StyleBox" uid="uid://k1y6qx164b7m" path="res://Theme/button_hover_style.tres" id="1_7fars"]
 [ext_resource type="StyleBox" uid="uid://bjwq2mjm1p31b" path="res://Theme/button_normal_style.tres" id="2_648rc"]
-[ext_resource type="FontFile" uid="uid://c2kxd6jo0ce3u" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_t0q8n"]
-[ext_resource type="FontFile" uid="uid://bp2ctr40ei7wu" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_l38hy"]
+[ext_resource type="StyleBox" uid="uid://dke5uyn5cx5vq" path="res://Theme/button_pressed_style.tres" id="3_cyoq5"]
+[ext_resource type="FontFile" uid="uid://c2kxd6jo0ce3u" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_rojvn"]
+[ext_resource type="FontFile" uid="uid://bp2ctr40ei7wu" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_wptjt"]
 
 [resource]
-default_font = ExtResource("4_l38hy")
-Button/colors/font_color = Color(1, 0, 0, 1)
-Button/colors/font_focus_color = Color(0.854902, 0.690196, 0, 1)
-Button/colors/font_hover_color = Color(0.854902, 0.690196, 0, 1)
+default_font = ExtResource("4_wptjt")
+Button/colors/font_color = Color(1, 0.843137, 0, 1)
+Button/colors/font_focus_color = Color(0.8, 0.678431, 0, 1)
+Button/colors/font_hover_color = Color(0.8, 0.678431, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0.6, 0.505882, 0, 1)
+Button/colors/font_pressed_color = Color(0.6, 0.505882, 0, 1)
 Button/styles/focus = ExtResource("1_7fars")
 Button/styles/hover = ExtResource("1_7fars")
 Button/styles/normal = ExtResource("2_648rc")
+Button/styles/pressed = ExtResource("3_cyoq5")
 Fonts/colors/Main = Color(0.698039, 0, 0, 1)
 Fonts/colors/Sub = Color(0.854902, 0.690196, 0, 1)
-Fonts/fonts/large = ExtResource("3_t0q8n")
-Fonts/fonts/normal = ExtResource("4_l38hy")
-Label/colors/font_color = Color(0.854902, 0, 0, 1)
-Label/colors/font_shadow_color = Color(0.854902, 0.690196, 0, 1)
+Fonts/fonts/large = ExtResource("3_rojvn")
+Fonts/fonts/normal = ExtResource("4_wptjt")
+Label/colors/font_color = Color(1, 0.270588, 0, 1)
+Label/colors/font_outline_color = Color(0.439216, 0.501961, 0.564706, 1)
+Label/colors/font_shadow_color = Color(1, 0.843137, 0, 1)

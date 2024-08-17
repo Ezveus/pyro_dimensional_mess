@@ -786,3 +786,4 @@ shape = SubResource("WorldBoundaryShape2D_c6288")
 
 [node name="Level1" parent="." instance=ExtResource("9_d2nla")]
 
+[connection signal="dead" from="Pyromancer" to="." method="_on_pyromancer_dead"]

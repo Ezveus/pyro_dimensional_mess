@@ -24,6 +24,10 @@ window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdquest_colorpicker_presets/plugin.cfg")
+
 [input]
 
 jump={

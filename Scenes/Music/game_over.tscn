@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://i5qmt54apcit"]
+
+[ext_resource type="AudioStream" uid="uid://b10idiul23gq3" path="res://Assets/Music/game_over.wav" id="1_26aiu"]
+
+[node name="GameOver" type="AudioStreamPlayer"]
+stream = ExtResource("1_26aiu")
+autoplay = true
