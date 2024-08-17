@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cdwqgphxj12ib"]
+
+[ext_resource type="StyleBox" uid="uid://k1y6qx164b7m" path="res://Theme/button_hover_style.tres" id="1_7fars"]
+[ext_resource type="StyleBox" uid="uid://bjwq2mjm1p31b" path="res://Theme/button_normal_style.tres" id="2_648rc"]
+[ext_resource type="FontFile" uid="uid://c2kxd6jo0ce3u" path="res://Assets/Fonts/PixelOperator8-Bold.ttf" id="3_t0q8n"]
+[ext_resource type="FontFile" uid="uid://bp2ctr40ei7wu" path="res://Assets/Fonts/PixelOperator8.ttf" id="4_l38hy"]
+
+[resource]
+default_font = ExtResource("4_l38hy")
+Button/colors/font_color = Color(1, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.854902, 0.690196, 0, 1)
+Button/colors/font_hover_color = Color(0.854902, 0.690196, 0, 1)
+Button/styles/focus = ExtResource("1_7fars")
+Button/styles/hover = ExtResource("1_7fars")
+Button/styles/normal = ExtResource("2_648rc")
+Fonts/colors/Main = Color(0.698039, 0, 0, 1)
+Fonts/colors/Sub = Color(0.854902, 0.690196, 0, 1)
+Fonts/fonts/large = ExtResource("3_t0q8n")
+Fonts/fonts/normal = ExtResource("4_l38hy")
+Label/colors/font_color = Color(0.854902, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0.854902, 0.690196, 0, 1)

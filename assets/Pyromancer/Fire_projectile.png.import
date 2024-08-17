@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chi3grok2j1of"
-path="res://.godot/imported/Fire_projectile.png-3e8c7b1cf01d8d3ef4cc5e324f2bf09e.ctex"
+path="res://.godot/imported/Fire_projectile.png-28627b7dcecce8984fc76c96558cd12f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Pyromancer/Fire_projectile.png"
-dest_files=["res://.godot/imported/Fire_projectile.png-3e8c7b1cf01d8d3ef4cc5e324f2bf09e.ctex"]
+source_file="res://Assets/Pyromancer/Fire_projectile.png"
+dest_files=["res://.godot/imported/Fire_projectile.png-28627b7dcecce8984fc76c96558cd12f.ctex"]
 
 [params]
 

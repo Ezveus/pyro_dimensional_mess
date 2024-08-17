@@ -6,3 +6,4 @@
 - ["Pyromancer 2D Pixel Art" by Mattz Art](https://xzany.itch.io/pyromancer-2d-pixel-art)
 - ["NPC Pack 2D Pixel Art" by Mattz Art](https://xzany.itch.io/npc-characters-2d-pixel-art)
 - ["Fantasy Tileset 2D Pixel Art" by Mattz Art](https://xzany.itch.io/fantasy-tileset-2d-pixel-art)
+- ["Pixel Operator" by Jayvee Enaguas](https://www.dafont.com/pixel-operator.font)

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xkbo4ini0iv4"
-path="res://.godot/imported/RUN.png-513e6002d6138c48403c24409af9a651.ctex"
+path="res://.godot/imported/RUN.png-28a2ca6cc5a74a37fbe8eb2d65058f2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Centaur/RUN.png"
-dest_files=["res://.godot/imported/RUN.png-513e6002d6138c48403c24409af9a651.ctex"]
+source_file="res://Assets/Centaur/RUN.png"
+dest_files=["res://.godot/imported/RUN.png-28a2ca6cc5a74a37fbe8eb2d65058f2a.ctex"]
 
 [params]
 

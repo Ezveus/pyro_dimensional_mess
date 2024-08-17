@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2mna5wokttmx"
-path="res://.godot/imported/Trees.png-b1f42666394308b4f34a0e6b9665871c.ctex"
+path="res://.godot/imported/Trees.png-75673e70d87f463d73b013e221db1efd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/Trees, grass and rocks/Trees.png"
-dest_files=["res://.godot/imported/Trees.png-b1f42666394308b4f34a0e6b9665871c.ctex"]
+source_file="res://Assets/Tilesets/Trees, grass and rocks/Trees.png"
+dest_files=["res://.godot/imported/Trees.png-75673e70d87f463d73b013e221db1efd.ctex"]
 
 [params]
 

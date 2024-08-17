@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rams1m06368s"
-path="res://.godot/imported/Rock Mountains.png-b082a82306bb409cf25d4860965cc044.ctex"
+path="res://.godot/imported/Rock Mountains.png-bb47162f5f8fc1fd9120230ec3465ebe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/Backgrounds/Rock Mountains.png"
-dest_files=["res://.godot/imported/Rock Mountains.png-b082a82306bb409cf25d4860965cc044.ctex"]
+source_file="res://Assets/Tilesets/Backgrounds/Rock Mountains.png"
+dest_files=["res://.godot/imported/Rock Mountains.png-bb47162f5f8fc1fd9120230ec3465ebe.ctex"]
 
 [params]
 
