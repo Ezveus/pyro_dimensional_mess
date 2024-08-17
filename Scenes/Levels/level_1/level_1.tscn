@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtsndo44v6dwr"]
+[gd_scene load_steps=13 format=3 uid="uid://dtsndo44v6dwr"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1/level_1.gd" id="1_0ndgi"]
-[ext_resource type="Texture2D" uid="uid://c7wptd8jrl4h8" path="res://Assets/Tilesets/Tiles/Tileset Outside.png" id="2_o13yh"]
-[ext_resource type="Texture2D" uid="uid://cvwtkptlrmrv8" path="res://Assets/Tilesets/Backgrounds/Grass Mountains.png" id="3_2rx3h"]
-[ext_resource type="Texture2D" uid="uid://cjsu7cqjg6g11" path="res://Assets/Tilesets/Backgrounds/Sky.png" id="3_qihrf"]
-[ext_resource type="Texture2D" uid="uid://bfbw8n5yhbyk4" path="res://Assets/Tilesets/Backgrounds/Clouds.png" id="4_xfvhr"]
-[ext_resource type="Texture2D" uid="uid://rams1m06368s" path="res://Assets/Tilesets/Backgrounds/Rock Mountains.png" id="5_b41v0"]
+[ext_resource type="Texture2D" uid="uid://c7wptd8jrl4h8" path="res://Assets/Graphics/Tilesets/Tiles/Tileset Outside.png" id="2_o13yh"]
+[ext_resource type="Texture2D" uid="uid://cvwtkptlrmrv8" path="res://Assets/Graphics/Tilesets/Backgrounds/Grass Mountains.png" id="3_2rx3h"]
+[ext_resource type="Texture2D" uid="uid://cjsu7cqjg6g11" path="res://Assets/Graphics/Tilesets/Backgrounds/Sky.png" id="3_qihrf"]
+[ext_resource type="Texture2D" uid="uid://bfbw8n5yhbyk4" path="res://Assets/Graphics/Tilesets/Backgrounds/Clouds.png" id="4_xfvhr"]
+[ext_resource type="Texture2D" uid="uid://rams1m06368s" path="res://Assets/Graphics/Tilesets/Backgrounds/Rock Mountains.png" id="5_b41v0"]
 [ext_resource type="PackedScene" uid="uid://cb5xiuocagj3l" path="res://Scenes/Characters/Pyromancer/pyromancer.tscn" id="5_l7frl"]
 [ext_resource type="PackedScene" uid="uid://dbtvbf4j1l5a3" path="res://Scenes/Utils/Killzone/killzone.tscn" id="7_tao84"]
+[ext_resource type="PackedScene" uid="uid://dbg5voxajegj2" path="res://Scenes/Music/level_1.tscn" id="9_d2nla"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jl21p"]
 texture = ExtResource("2_o13yh")
@@ -782,3 +783,6 @@ collision_mask = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(-33, 1740)
 shape = SubResource("WorldBoundaryShape2D_c6288")
+
+[node name="Level1" parent="." instance=ExtResource("9_d2nla")]
+

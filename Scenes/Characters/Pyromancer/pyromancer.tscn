@@ -1,11 +1,11 @@
 [gd_scene load_steps=39 format=3 uid="uid://cb5xiuocagj3l"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/pyromancer.gd" id="1_jtlxj"]
-[ext_resource type="Texture2D" uid="uid://blg67oah41j14" path="res://Assets/Pyromancer/IDLE.png" id="1_rndbv"]
-[ext_resource type="Texture2D" uid="uid://3qy3gotkwxkh" path="res://Assets/Pyromancer/ATTACK.png" id="2_opnwc"]
-[ext_resource type="Texture2D" uid="uid://dcy3ttc3h6ly3" path="res://Assets/Pyromancer/DEATH.png" id="3_aqsng"]
-[ext_resource type="Texture2D" uid="uid://bv4jxp3qcoqnt" path="res://Assets/Pyromancer/HURT.png" id="4_6gdol"]
-[ext_resource type="Texture2D" uid="uid://6grmwbd5a3nl" path="res://Assets/Pyromancer/WALK.png" id="6_0ddwy"]
+[ext_resource type="Texture2D" uid="uid://blg67oah41j14" path="res://Assets/Graphics/Pyromancer/IDLE.png" id="1_rndbv"]
+[ext_resource type="Texture2D" uid="uid://3qy3gotkwxkh" path="res://Assets/Graphics/Pyromancer/ATTACK.png" id="2_opnwc"]
+[ext_resource type="Texture2D" uid="uid://dcy3ttc3h6ly3" path="res://Assets/Graphics/Pyromancer/DEATH.png" id="3_aqsng"]
+[ext_resource type="Texture2D" uid="uid://bv4jxp3qcoqnt" path="res://Assets/Graphics/Pyromancer/HURT.png" id="4_6gdol"]
+[ext_resource type="Texture2D" uid="uid://6grmwbd5a3nl" path="res://Assets/Graphics/Pyromancer/WALK.png" id="6_0ddwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjnnb"]
 atlas = ExtResource("2_opnwc")
@@ -259,9 +259,8 @@ script = ExtResource("1_jtlxj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -2)
 sprite_frames = SubResource("SpriteFrames_xqdlg")
-animation = &"jump"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.915667
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 8.5)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yblvpqkva3wh"]
+
+[ext_resource type="AudioStream" uid="uid://d38clqsm5rkve" path="res://Assets/Music/dimensional_mess.wav" id="1_m8bvn"]
+
+[node name="DimensionalMess" type="AudioStreamPlayer"]
+stream = ExtResource("1_m8bvn")
+autoplay = true
