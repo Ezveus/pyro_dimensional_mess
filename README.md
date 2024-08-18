@@ -1,6 +1,16 @@
 # Pyro and the Dimensional Mess
 
+This is my first original game (third one if I count the tutorials from Brackey and GDQuest).
+
+It was produced for the [GMTK Game Jam 2024](https://itch.io/jam/gmtk-2024).
+
+The theme was **Built to Scale** so I went with a game where the size of elements can change anytime.
+
 ## Credits
+
+### Ideas
+
+The ideas are derived from the jam's theme but come either from me or my girlfriend <3
 
 ### Graphics
 
