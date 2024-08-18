@@ -9,7 +9,7 @@ const FIREBALL = preload('res://Scenes/Characters/Pyromancer/fireball.tscn')
 func _ready():
 	super()
 
-	jump_velocity = -300
+	jump_velocity = jump_velocity_from_size()
 	health = int(size_level)
 	damage_rate = 50
 	orientation = 1
@@ -56,6 +56,21 @@ func do_attack():
 func talk(message):
 	print(message)
 
+func jump_velocity_from_size() -> int:
+	match size_level:
+		Enums.SizeLevel.XS:
+			return -500
+		Enums.SizeLevel.S:
+			return -400
+		Enums.SizeLevel.M:
+			return -300
+		Enums.SizeLevel.L:
+			return -200
+		Enums.SizeLevel.XL:
+			return -100
+		_:
+			return -500
+
 func _on_hurting():
 	if state == State.HURTING:
 		health -= 1
@@ -73,3 +88,8 @@ func _on_recovery_timer_timeout():
 
 func _on_size_decreased():
 	force_state = State.FALLING
+
+func _on_size_changed():
+	super()
+
+	jump_velocity = jump_velocity_from_size()
