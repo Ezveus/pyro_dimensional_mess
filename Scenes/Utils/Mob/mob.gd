@@ -32,10 +32,11 @@ var orientation: float = -1
 var can_be_hurt = true
 var can_attack = true
 
-signal hurting
+signal hurting(damages: int)
 signal dead
 
 func _ready():
+	health = int(size_level)
 	hurt_box.area_entered.connect(_on_hurtbox_area_entered)
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
 
@@ -136,11 +137,11 @@ func attack():
 func do_attack():
 	attack_cooldown_timer.start()
 
-func hurt():
+func hurt(damages: int = 1):
 	if can_be_hurt:
 		state = State.HURTING
 		animated_sprite.play('hurt')
-		hurting.emit()
+		hurting.emit(damages)
 
 func die():
 	state = State.DYING

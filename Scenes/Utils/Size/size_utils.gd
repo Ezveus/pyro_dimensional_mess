@@ -36,7 +36,7 @@ static func update_size(new_value):
 	elif new_value < Enums.SizeLevel.XS:
 		new_value = Enums.SizeLevel.XS
 
-	return Enums.SizeLevel.values()[new_value]
+	return Enums.SizeLevel.values()[new_value - 1]
 
 static func decrease_size(size_level: Enums.SizeLevel, step: int = 1):
 	var new_value = int(size_level) - step

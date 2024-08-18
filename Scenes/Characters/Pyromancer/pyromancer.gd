@@ -50,6 +50,7 @@ func do_attack():
 
 	fireball.global_position = casting_point.global_position
 	fireball.rotation_degrees = (180 if orientation < 0 else 0)
+	fireball.size_level = size_level
 	get_parent().add_child(fireball)
 	attack_cooldown_timer.start()
 
@@ -71,15 +72,15 @@ func jump_velocity_from_size() -> int:
 		_:
 			return -500
 
-func _on_hurting():
+func _on_hurting(damages=1):
 	if state == State.HURTING:
-		health -= 1
+		health -= damages
 		decrease_size()
 		can_be_hurt = false
 		recovery_timer.start()
 
 		if health <= 0:
-			state = State.DYING
+			force_state = State.DYING
 		else:
 			state = State.IDLE
 

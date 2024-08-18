@@ -22,11 +22,19 @@ func scan_for_enemies():
 func _on_dead():
 	call_deferred("queue_free")
 
-func _on_hurting():
+func _on_hurtbox_area_entered(body):
+	if body.name == 'Fireball':
+		state = State.HURTING
+
+func _on_hurting(damages=1):
 	if state == State.HURTING:
-		health -= 1
+		health -= damages
+		decrease_size()
 
 		if health <= 0:
-			state = State.DYING
+			force_state = State.DYING
 		else:
 			state = State.IDLE
+
+func _on_size_decreased():
+	force_state = State.FALLING
