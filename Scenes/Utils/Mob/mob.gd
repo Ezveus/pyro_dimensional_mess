@@ -28,6 +28,7 @@ var health: int = 1
 var jump_velocity : int = -100
 var damage_rate: int = 10
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var orientation: float = -1
 var can_be_hurt = true
 var can_attack = true
 

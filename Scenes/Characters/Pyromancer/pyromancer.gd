@@ -12,12 +12,15 @@ func _ready():
 	jump_velocity = -300
 	health = int(size_level)
 	damage_rate = 50
+	orientation = 1
 
 func update_state():
 	if state == State.DYING:
 		return
 
 	var direction = Input.get_axis("move_left", "move_right")
+	if direction != 0:
+		orientation = direction
 
 	if can_attack && Input.is_action_just_pressed("cast"):
 		state = State.ATTACKING
@@ -46,7 +49,8 @@ func do_attack():
 	var fireball = FIREBALL.instantiate()
 
 	fireball.position = casting_point.position
-	casting_point.add_child(fireball)
+	fireball.rotation_degrees = (180 if orientation < 0 else 0)
+	add_child(fireball)
 	attack_cooldown_timer.start()
 
 func talk(message):
