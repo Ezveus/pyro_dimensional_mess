@@ -48,9 +48,9 @@ func update_state():
 func do_attack():
 	var fireball = FIREBALL.instantiate()
 
-	fireball.position = casting_point.position
+	fireball.global_position = casting_point.global_position
 	fireball.rotation_degrees = (180 if orientation < 0 else 0)
-	add_child(fireball)
+	get_parent().add_child(fireball)
 	attack_cooldown_timer.start()
 
 func talk(message):
