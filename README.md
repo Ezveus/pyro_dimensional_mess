@@ -9,6 +9,7 @@
 - ["NPC Pack 2D Pixel Art" by Mattz Art](https://xzany.itch.io/npc-characters-2d-pixel-art)
 - ["Fantasy Tileset 2D Pixel Art" by Mattz Art](https://xzany.itch.io/fantasy-tileset-2d-pixel-art)
 - ["Medieval Castle Tileset Pack" by Mucho Pixels](https://muchopixels.itch.io/medieval-castle-tileset-pack)
+- Game icon generated using Bing image creator.
 
 ### Fonts
 

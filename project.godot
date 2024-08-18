@@ -13,7 +13,7 @@ config_version=5
 config/name="Pyro and the Dimensional Mess"
 run/main_scene="res://Scenes/Screens/StartScreen/start_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/Graphics/Icon/pyro_mess_icon.jpeg"
 
 [display]
 
