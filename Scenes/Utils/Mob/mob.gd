@@ -12,19 +12,13 @@ enum State {
 	DYING
 }
 
-enum SizeLevel {
-	XS,
-	S,
-	M,
-	L,
-	XL
-}
+const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurt_box: Area2D = $Hurtbox
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 
-@export var size_level: SizeLevel = SizeLevel.M
+@export var size_level: Enums.SizeLevel = Enums.SizeLevel.M
 
 @export var debug = false
 
@@ -78,34 +72,10 @@ func state_as_string() -> String:
 			return ''
 
 func size_level_as_string() -> String:
-	match size_level:
-		SizeLevel.XS:
-			return 'XS'
-		SizeLevel.S:
-			return 'S'
-		SizeLevel.M:
-			return 'M'
-		SizeLevel.L:
-			return 'L'
-		SizeLevel.XL:
-			return 'XL'
-		_:
-			return 'M'
+	return SizeUtils.size_level_as_string(size_level)
 
 func size() -> float:
-	match size_level:
-		SizeLevel.XS:
-			return 0.25
-		SizeLevel.S:
-			return 0.5
-		SizeLevel.M:
-			return 1
-		SizeLevel.L:
-			return 2
-		SizeLevel.XL:
-			return 4
-		_:
-			return 1
+	return SizeUtils.size(size_level)
 
 func update_state():
 	pass
