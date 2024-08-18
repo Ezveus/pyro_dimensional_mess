@@ -66,3 +66,6 @@ func _on_hurting():
 
 func _on_recovery_timer_timeout():
 	can_be_hurt = true
+
+func _on_size_decreased():
+	force_state = State.FALLING

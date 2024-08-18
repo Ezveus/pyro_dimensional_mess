@@ -22,6 +22,7 @@ const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
 
 @export var debug = false
 
+var force_state: State = State.IDLE
 var state: State = State.IDLE
 var health: int = 1
 var jump_velocity : int = -100
@@ -44,6 +45,11 @@ func _ready():
 	size_changed.connect(_on_size_changed)
 
 func _physics_process(delta):
+	debug_message("_physics_process[-1]: Current state: %s, force_state: %s" % [state_as_string(), state_as_string(force_state)])
+	if force_state != State.IDLE:
+		state = force_state
+		force_state = State.IDLE
+
 	debug_message("_physics_process[0]: Current state: %s" % state_as_string())
 	check_state(delta)
 	debug_message("_physics_process[1]: Current state: %s" % state_as_string())
@@ -56,8 +62,8 @@ func debug_message(message):
 
 	print("[%s] %s" % [name, message])
 
-func state_as_string() -> String:
-	match state:
+func state_as_string(st: State = state) -> String:
+	match st:
 		State.IDLE:
 			return 'IDLE'
 		State.RUNNING:
