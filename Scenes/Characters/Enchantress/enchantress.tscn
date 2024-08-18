@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://di1lmrkmb62bj"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/Enchantress/enchantress.gd" id="1_ytqlb"]
+[ext_resource type="Texture2D" uid="uid://8otw8uq7otwt" path="res://Assets/Graphics/Enchanter/ENCHANTER.png" id="2_p3mro"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0d0f"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(0, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6rst"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(128, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wooat"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(256, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he2dg"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(384, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brvwb"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(512, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcnl4"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(640, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ddle"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(768, 0, 128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh3bb"]
+atlas = ExtResource("2_p3mro")
+region = Rect2(896, 0, 128, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrbmh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0d0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6rst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wooat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he2dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brvwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcnl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ddle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bh3bb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8nlj"]
+size = Vector2(126, 73)
+
+[node name="Enchantress" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_ytqlb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hrbmh")
+autoplay = "default"
+frame_progress = 0.0699437
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -4.5)
+shape = SubResource("RectangleShape2D_n8nlj")

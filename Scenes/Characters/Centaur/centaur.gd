@@ -1,5 +1,7 @@
 extends "res://Scenes/Utils/Mob/mob.gd"
 
+class_name Centaur
+
 const SPEED: int = 250
 
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
@@ -23,7 +25,7 @@ func _on_dead():
 	call_deferred("queue_free")
 
 func _on_hurtbox_area_entered(body):
-	if body.name == 'Fireball':
+	if body is Fireball:
 		state = State.HURTING
 
 func _on_hurting(damages=1):

@@ -1,17 +1,13 @@
-extends Area2D
+extends EnvironmentalEventDetector
 
-const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
-
-@export var size_level: Enums.SizeLevel = Enums.SizeLevel.M
+class_name CastleDoor
 
 signal open
 
 func _ready():
-	##
-	## Size-related stuff
-	##
-	update_scale()
-	size_changed.connect(_on_size_changed)
+	super()
+
+	on_entered = _on_body_entered
 
 func can_open_for(body) -> bool:
 	if !'size_level' in body:
@@ -30,34 +26,3 @@ func _on_body_entered(body):
 			else:
 				message += " I'm too small!"
 		body.talk(message)
-
-##
-## Size-related stuff
-##
-signal size_changed
-signal size_increased
-signal size_decreased
-
-func _on_size_changed():
-	update_scale()
-
-func size_level_as_string() -> String:
-	return SizeUtils.size_level_as_string(size_level)
-
-func size() -> float:
-	return SizeUtils.size(size_level)
-
-func update_scale():
-	var current_size = size()
-	scale.x = current_size
-	scale.y = current_size
-
-func decrease_size(step=1):
-	size_level = SizeUtils.decrease_size(size_level, step)
-	size_changed.emit()
-	size_decreased.emit()
-
-func increase_size(step=1):
-	size_level = SizeUtils.increase_size(size_level, step)
-	size_changed.emit()
-	size_increased.emit()

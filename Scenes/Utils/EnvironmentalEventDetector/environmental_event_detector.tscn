@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ihjlbdoog2bi"]
+
+[ext_resource type="Script" path="res://Scenes/Utils/EnvironmentalEventDetector/environmental_event_detector.gd" id="1_lrjdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hun8o"]
+size = Vector2(94, 29.5001)
+
+[node name="EnvironmentalEventDetector" type="Area2D"]
+collision_layer = 64
+script = ExtResource("1_lrjdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hun8o")

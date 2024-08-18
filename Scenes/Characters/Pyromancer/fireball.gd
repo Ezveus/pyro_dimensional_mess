@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Fireball
+
 const VELOCITY = 500
 const RANGE = 600
 

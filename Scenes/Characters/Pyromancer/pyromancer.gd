@@ -1,7 +1,10 @@
 extends "res://Scenes/Utils/Mob/mob.gd"
 
+class_name Pyromancer
+
 const SPEED = 200.0
 const FIREBALL = preload('res://Scenes/Characters/Pyromancer/fireball.tscn')
+const TEXT_BOX = preload('res://Scenes/Utils/TextBox/text_box.tscn')
 
 @onready var recovery_timer: Timer = $RecoveryTimer
 @onready var casting_point: Marker2D = $CastingPoint
@@ -55,7 +58,11 @@ func do_attack():
 	attack_cooldown_timer.start()
 
 func talk(message):
-	print(message)
+	var text_box = TEXT_BOX.instantiate()
+
+	get_tree().root.add_child(text_box)
+	text_box.position = global_position
+	text_box.display_text(message, size())
 
 func jump_velocity_from_size() -> int:
 	match size_level:
