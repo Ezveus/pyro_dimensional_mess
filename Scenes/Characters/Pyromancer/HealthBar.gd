@@ -4,7 +4,7 @@ func _ready():
 	# Appeler la fonction pour mettre à jour la couleur dès le démarrage
 	_update_color()
 
-func _on_value_changed(value):
+func _on_value_changed(_value):
 	# Mettre à jour la couleur à chaque changement de valeur
 	_update_color()
 

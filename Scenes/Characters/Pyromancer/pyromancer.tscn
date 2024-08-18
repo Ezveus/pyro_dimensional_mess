@@ -282,6 +282,8 @@ debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
 
 [node name="RecoveryTimer" type="Timer" parent="."]
 
+[node name="CastCooldownTimer" type="Timer" parent="."]
+
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -16.0
 offset_top = -27.0
@@ -293,8 +295,11 @@ value = 3.0
 show_percentage = false
 script = ExtResource("7_jmje5")
 
-[connection signal="dead" from="." to="." method="_on_dead"]
+[node name="CastingPoint" type="Marker2D" parent="."]
+position = Vector2(19, 10)
+
 [connection signal="hurting" from="." to="." method="_on_hurting"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
+[connection signal="timeout" from="CastCooldownTimer" to="." method="_on_cast_cooldown_timer_timeout"]
 [connection signal="value_changed" from="HealthBar" to="HealthBar" method="_on_value_changed"]

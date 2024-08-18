@@ -14,7 +14,7 @@ enum State {
 @onready var hurt_box: Area2D = $Hurtbox
 
 var state: State = State.IDLE
-var health: int = 100
+var health: int = 1
 var jump_velocity : int = -100
 var damage_rate: int = 10
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,8 +24,30 @@ signal hurting
 signal dead
 
 func _physics_process(delta):
+	print("[%s] _physics_process[0]: Current state: %s" % [name, state_as_string()])
 	check_state(delta)
+	print("[%s] _physics_process[1]: Current state: %s" % [name, state_as_string()])
 	update_state()
+	print("[%s] _physics_process[2]: Current state: %s" % [name, state_as_string()])
+
+func state_as_string():
+	match state:
+		State.IDLE:
+			return 'IDLE'
+		State.RUNNING:
+			return 'RUNNING'
+		State.JUMPING:
+			return 'JUMPING'
+		State.FALLING:
+			return 'FALLING'
+		State.ATTACKING:
+			return 'ATTACKING'
+		State.HURTING:
+			return 'HURTING'
+		State.DYING:
+			return 'DYING'
+		_:
+			return ''
 
 func update_state():
 	pass
@@ -80,7 +102,8 @@ func hurt():
 		state = State.HURTING
 		animated_sprite.play('hurt')
 		for ennemy in hurt_box.get_overlapping_bodies():
-			ennemy.attack()
+			if ennemy.has_method('attack'):
+				ennemy.attack()
 		hurting.emit()
 
 func die():

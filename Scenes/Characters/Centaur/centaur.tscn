@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_jix4n")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(3.5, 19)
@@ -38,3 +38,4 @@ shape = SubResource("RectangleShape2D_wsbql")
 debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
 
 [connection signal="dead" from="." to="." method="_on_dead"]
+[connection signal="hurting" from="." to="." method="_on_hurting"]
