@@ -807,6 +807,5 @@ size_level = 0
 
 [node name="Centaur5" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(387, 1458)
-size_level = 3
 
 [connection signal="dead" from="Pyromancer" to="." method="_on_pyromancer_dead"]

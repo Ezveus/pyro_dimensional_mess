@@ -8,7 +8,7 @@
 size = Vector2(46, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsbql"]
-size = Vector2(51, 56)
+size = Vector2(51, 22)
 
 [node name="Centaur" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,7 +16,7 @@ collision_mask = 8
 script = ExtResource("1_4rsg5")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(-10, 2.08165e-12)
+position = Vector2(-10, 4)
 target_position = Vector2(-1000, 2.08165e-12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -35,7 +35,7 @@ collision_mask = 4
 script = ExtResource("3_g1wts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(3.5, 19)
+position = Vector2(3.5, 2)
 shape = SubResource("RectangleShape2D_wsbql")
 debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
 
