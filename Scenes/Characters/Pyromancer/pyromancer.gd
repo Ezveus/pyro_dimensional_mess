@@ -4,16 +4,13 @@ const SPEED = 200.0
 const FIREBALL = preload('res://Scenes/Characters/Pyromancer/fireball.tscn')
 
 @onready var recovery_timer: Timer = $RecoveryTimer
-@onready var health_bar: ProgressBar = $HealthBar
 @onready var casting_point: Marker2D = $CastingPoint
 
 func _ready():
 	super()
 
 	jump_velocity = -300
-	health = 3
-	health_bar.max_value = health
-	health_bar.value = health
+	health = int(size_level)
 	damage_rate = 50
 
 func update_state():
@@ -45,10 +42,20 @@ func update_state():
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+func do_attack():
+	var fireball = FIREBALL.instantiate()
+
+	fireball.position = casting_point.position
+	casting_point.add_child(fireball)
+	attack_cooldown_timer.start()
+
+func talk(message):
+	print(message)
+
 func _on_hurting():
 	if state == State.HURTING:
 		health -= 1
-		health_bar.value = health
+		decrease_size()
 		can_be_hurt = false
 		recovery_timer.start()
 
@@ -59,13 +66,3 @@ func _on_hurting():
 
 func _on_recovery_timer_timeout():
 	can_be_hurt = true
-
-func do_attack():
-	var fireball = FIREBALL.instantiate()
-
-	fireball.position = casting_point.position
-	casting_point.add_child(fireball)
-	attack_cooldown_timer.start()
-
-func talk(message):
-	print(message)

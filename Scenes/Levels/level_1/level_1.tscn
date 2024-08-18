@@ -65,6 +65,8 @@ centered = false
 
 [node name="Pyromancer" parent="." instance=ExtResource("5_l7frl")]
 position = Vector2(265, 1473)
+size_level = 2
+debug = false
 
 [node name="Camera2D" type="Camera2D" parent="Pyromancer"]
 offset = Vector2(2.08165e-12, 2.08165e-12)

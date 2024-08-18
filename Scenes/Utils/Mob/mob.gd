@@ -36,8 +36,12 @@ signal dead
 func _ready():
 	hurt_box.area_entered.connect(_on_hurtbox_area_entered)
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
-	scale.x = size()
-	scale.y = size()
+
+	##
+	## Size-related stuff
+	##
+	update_scale()
+	size_changed.connect(_on_size_changed)
 
 func _physics_process(delta):
 	debug_message("_physics_process[0]: Current state: %s" % state_as_string())
@@ -70,12 +74,6 @@ func state_as_string() -> String:
 			return 'DYING'
 		_:
 			return ''
-
-func size_level_as_string() -> String:
-	return SizeUtils.size_level_as_string(size_level)
-
-func size() -> float:
-	return SizeUtils.size(size_level)
 
 func update_state():
 	pass
@@ -142,8 +140,42 @@ func die():
 	animated_sprite.play('death')
 	dead.emit()
 
+##
+## Signal callbacks
+##
 func _on_hurtbox_area_entered(_body):
 	state = State.HURTING
 
 func _on_attack_cooldown_timer_timeout():
 	can_attack = true
+
+##
+## Size-related stuff
+##
+signal size_changed
+signal size_increased
+signal size_decreased
+
+func _on_size_changed():
+	update_scale()
+
+func size_level_as_string() -> String:
+	return SizeUtils.size_level_as_string(size_level)
+
+func size() -> float:
+	return SizeUtils.size(size_level)
+
+func update_scale():
+	var current_size = size()
+	scale.x = current_size
+	scale.y = current_size
+
+func decrease_size(step=1):
+	size_level = SizeUtils.decrease_size(size_level, step)
+	size_changed.emit()
+	size_decreased.emit()
+
+func increase_size(step=1):
+	size_level = SizeUtils.increase_size(size_level, step)
+	size_changed.emit()
+	size_increased.emit()

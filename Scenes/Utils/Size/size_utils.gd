@@ -29,3 +29,21 @@ static func size(size_level: Enums.SizeLevel) -> float:
 			return 4
 		_:
 			return 1
+
+static func update_size(new_value):
+	if new_value > Enums.SizeLevel.XL:
+		new_value = Enums.SizeLevel.XL
+	elif new_value < Enums.SizeLevel.XS:
+		new_value = Enums.SizeLevel.XS
+
+	return Enums.SizeLevel.values()[new_value]
+
+static func decrease_size(size_level: Enums.SizeLevel, step: int = 1):
+	var new_value = int(size_level) - step
+
+	return update_size(new_value)
+
+static func increase_size(size_level: Enums.SizeLevel, step: int = 1):
+	var new_value = int(size_level) + step
+
+	return update_size(new_value)
