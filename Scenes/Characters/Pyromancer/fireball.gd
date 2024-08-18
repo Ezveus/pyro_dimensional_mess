@@ -24,9 +24,7 @@ func _physics_process(delta):
 		queue_free()
 
 func _on_area_entered(area):
-	queue_free()
-	if area.has_method('hurt'):
-		area.hurt(int(size_level))
+	hurt_enemy(area)
 
 func size() -> float:
 	return SizeUtils.size(size_level)
@@ -35,3 +33,11 @@ func update_scale():
 	var current_size = size()
 	scale.x = current_size
 	scale.y = current_size
+
+func _on_body_entered(body):
+	hurt_enemy(body)
+
+func hurt_enemy(enemy):
+	queue_free()
+	if enemy.has_method('hurt'):
+		enemy.hurt(int(size_level))
