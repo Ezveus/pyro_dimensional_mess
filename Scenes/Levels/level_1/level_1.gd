@@ -9,3 +9,6 @@ func change_scene_to_game_over():
 	
 		if tree:
 			tree.change_scene_to_file("res://Scenes/Screens/GameOverScreen/game_over_screen.tscn")
+
+func _on_castle_door_open():
+	print("End of the game!")

@@ -66,3 +66,6 @@ func do_attack():
 	fireball.position = casting_point.position
 	casting_point.add_child(fireball)
 	attack_cooldown_timer.start()
+
+func talk(message):
+	print(message)
