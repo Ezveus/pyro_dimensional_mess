@@ -86,11 +86,11 @@ shape = SubResource("WorldBoundaryShape2D_c6288")
 [node name="Level1" parent="." instance=ExtResource("9_d2nla")]
 
 [node name="Centaur" parent="." instance=ExtResource("10_x45yo")]
-position = Vector2(2654, 1680)
+position = Vector2(3618, 1727)
 size_level = 4
 
 [node name="Centaur2" parent="." instance=ExtResource("10_x45yo")]
-position = Vector2(3371, 1715)
+position = Vector2(2699, 1628)
 size_level = 5
 
 [node name="Centaur3" parent="." instance=ExtResource("10_x45yo")]
@@ -109,10 +109,16 @@ z_index = 1
 position = Vector2(385, 1759)
 
 [node name="StartGameDetector" parent="." instance=ExtResource("13_4kdac")]
-position = Vector2(586, 1820)
+position = Vector2(492, 1789)
 
-[node name="CollisionShape2D" parent="StartGameDetector" index="0"]
-position = Vector2(6, 0.749878)
+[node name="CentaurDetector" parent="." instance=ExtResource("13_4kdac")]
+position = Vector2(1569, 1774)
+
+[node name="CollisionShape2D" parent="CentaurDetector" index="0"]
+position = Vector2(12, -14.5)
+
+[node name="GiantCentaurDetector" parent="." instance=ExtResource("13_4kdac")]
+position = Vector2(2270, 1718)
 
 [node name="CastleDoor" parent="." instance=ExtResource("11_qqugx")]
 position = Vector2(3720, 1754)
@@ -121,3 +127,5 @@ position = Vector2(3720, 1754)
 [connection signal="open" from="CastleDoor" to="." method="_on_castle_door_open"]
 
 [editable path="StartGameDetector"]
+[editable path="CentaurDetector"]
+[editable path="GiantCentaurDetector"]
