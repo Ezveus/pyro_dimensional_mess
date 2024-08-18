@@ -772,6 +772,7 @@ centered = false
 
 [node name="Pyromancer" parent="." instance=ExtResource("5_l7frl")]
 position = Vector2(265, 1473)
+debug = true
 
 [node name="Camera2D" type="Camera2D" parent="Pyromancer"]
 offset = Vector2(2.08165e-12, 2.08165e-12)
@@ -790,5 +791,22 @@ shape = SubResource("WorldBoundaryShape2D_c6288")
 
 [node name="Centaur" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(1382, 1459)
+size_level = 3
+
+[node name="Centaur2" parent="." instance=ExtResource("10_x45yo")]
+position = Vector2(2008, 1406)
+size_level = 4
+
+[node name="Centaur3" parent="." instance=ExtResource("10_x45yo")]
+position = Vector2(1764, 1521)
+size_level = 1
+
+[node name="Centaur4" parent="." instance=ExtResource("10_x45yo")]
+position = Vector2(1463, 1552)
+size_level = 0
+
+[node name="Centaur5" parent="." instance=ExtResource("10_x45yo")]
+position = Vector2(387, 1458)
+size_level = 3
 
 [connection signal="dead" from="Pyromancer" to="." method="_on_pyromancer_dead"]

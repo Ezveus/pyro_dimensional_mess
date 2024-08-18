@@ -14,7 +14,7 @@ func _physics_process(delta):
 	if traveled_distance > RANGE:
 		queue_free()
 
-func _on_body_entered(body):
+func _on_area_entered(area):
 	queue_free()
-	if body.has_method('hurt'):
-		body.hurt()
+	if area.has_method('hurt'):
+		area.hurt()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cb5xiuocagj3l"]
+[gd_scene load_steps=42 format=3 uid="uid://cb5xiuocagj3l"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/pyromancer.gd" id="1_jtlxj"]
 [ext_resource type="Texture2D" uid="uid://blg67oah41j14" path="res://Assets/Graphics/Pyromancer/IDLE.png" id="1_rndbv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv4jxp3qcoqnt" path="res://Assets/Graphics/Pyromancer/HURT.png" id="4_6gdol"]
 [ext_resource type="Texture2D" uid="uid://6grmwbd5a3nl" path="res://Assets/Graphics/Pyromancer/WALK.png" id="6_0ddwy"]
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/HealthBar.gd" id="7_jmje5"]
+[ext_resource type="Script" path="res://Scenes/Utils/Mob/hurtbox.gd" id="7_o617v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjnnb"]
 atlas = ExtResource("2_opnwc")
@@ -255,10 +256,10 @@ animations = [{
 size = Vector2(25, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rmd3"]
-size = Vector2(32, 56)
+size = Vector2(32, 55)
 
 [node name="Pyromancer" type="CharacterBody2D"]
-collision_mask = 9
+collision_mask = 8
 script = ExtResource("1_jtlxj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -273,16 +274,17 @@ shape = SubResource("RectangleShape2D_vevmp")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 16
+script = ExtResource("7_o617v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-1, 8)
+position = Vector2(-1, 8.5)
 shape = SubResource("RectangleShape2D_2rmd3")
 debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
 
 [node name="RecoveryTimer" type="Timer" parent="."]
 
-[node name="CastCooldownTimer" type="Timer" parent="."]
+[node name="AttackCooldownTimer" type="Timer" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -16.0
@@ -299,7 +301,5 @@ script = ExtResource("7_jmje5")
 position = Vector2(19, 10)
 
 [connection signal="hurting" from="." to="." method="_on_hurting"]
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]
-[connection signal="timeout" from="CastCooldownTimer" to="." method="_on_cast_cooldown_timer_timeout"]
 [connection signal="value_changed" from="HealthBar" to="HealthBar" method="_on_value_changed"]
