@@ -31,7 +31,7 @@ func _on_castle_door_open():
 	await DialogManager.dialog_finished
 	var tween = create_tween()
 	tween.tween_property(self, 'modulate', Color.BLACK, 1)
-	tween.tween_callback(Callable(self, 'call_deferred').bind("change_scene_to", "res://Scenes/Screens/StartScreen/start_screen.tscn"))
+	tween.tween_callback(Callable(self, 'call_deferred').bind("change_scene_to", "res://Scenes/Screens/EndGameScreen/end_game_screen.tscn"))
 
 func show_start_game(body, _emitter):
 	body.talk([

@@ -1,0 +1,162 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu5fsfrg6lqkw"]
+
+[ext_resource type="Theme" uid="uid://cdwqgphxj12ib" path="res://Theme/theme.tres" id="1_ikchb"]
+[ext_resource type="AudioStream" uid="uid://exib7msoov4u" path="res://Assets/Music/dimensional_mess.wav" id="2_fxov8"]
+[ext_resource type="Script" path="res://Scenes/Screens/EndGameScreen/end_game_screen.gd" id="2_m3llh"]
+[ext_resource type="FontFile" uid="uid://dksd46e6qn8vg" path="res://Assets/Fonts/Flames.ttf" id="4_bjamn"]
+
+[node name="EndGameScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_ikchb")
+script = ExtResource("2_m3llh")
+
+[node name="DimensionalMess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_fxov8")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.545098, 0.270588, 0.0745098, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Outro" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Outro"]
+layout_mode = 2
+
+[node name="Pyro" type="Label" parent="MarginContainer/Outro/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_bjamn")
+text = "Pyro"
+
+[node name="Dimensional Mess" type="Label" parent="MarginContainer/Outro/HBoxContainer"]
+layout_mode = 2
+text = "in The Dimensional Mess"
+
+[node name="Label" type="Label" parent="MarginContainer/Outro"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "This game was produced for the GMTK Game Jam 2024."
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/Outro"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "The theme was \"Built to Scale\" so I went with a game where the size of elements can change anytime."
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="MarginContainer/Outro"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "This is my first original game (third one if I count the tutorials from Brackey and GDQuest) and I started from scratch with almost no code.
+"
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="MarginContainer/Outro"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+text = "Though this game is awfully short, I'm happy with the result and the many things I learned during this jam."
+autowrap_mode = 3
+
+[node name="ToCreditsButton" type="Button" parent="MarginContainer/Outro"]
+layout_mode = 2
+text = "Next"
+
+[node name="Credits" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label3" type="Label" parent="MarginContainer/Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Credits
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="RichTextLabel" parent="MarginContainer/Credits"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+bbcode_enabled = true
+text = "[u]Graphics[/u]
+
+Mattz Art
+Mucho Pixels
+
+[u]Fonts[/u]
+
+Jayvee Enaguas
+Rick Mueller
+
+[u]Music[/u]
+
+Shononoki
+
+[u]Sfx[/u]
+
+Kronbits
+Leohpaz"
+fit_content = true
+scroll_active = false
+
+[node name="ToThanksButton" type="Button" parent="MarginContainer/Credits"]
+layout_mode = 2
+text = "Next"
+
+[node name="Thanks" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="MarginContainer/Thanks"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 50
+text = "Thanks for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/Thanks"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Special thanks to my girlfriend for helping me with the theme and for supporting my \"absence\" during the week-end. <3
+"
+autowrap_mode = 3
+
+[node name="QuitButton" type="Button" parent="MarginContainer/Thanks"]
+layout_mode = 2
+text = "I hope to see you again!"
+
+[connection signal="pressed" from="MarginContainer/Outro/ToCreditsButton" to="." method="_on_to_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Credits/ToThanksButton" to="." method="_on_to_thanks_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Thanks/QuitButton" to="." method="_on_quit_button_pressed"]
