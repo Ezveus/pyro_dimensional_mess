@@ -71,7 +71,7 @@ centered = false
 
 [node name="Pyromancer" parent="." instance=ExtResource("5_l7frl")]
 z_index = 2
-position = Vector2(48, 1760)
+position = Vector2(4236, 1715)
 
 [node name="Camera2D" type="Camera2D" parent="Pyromancer"]
 limit_left = 0
