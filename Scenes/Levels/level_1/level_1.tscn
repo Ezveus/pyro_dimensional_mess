@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dtsndo44v6dwr"]
+[gd_scene load_steps=18 format=3 uid="uid://dtsndo44v6dwr"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/level_1/level_1.gd" id="1_0ndgi"]
 [ext_resource type="TileSet" uid="uid://dxpbi71tgqurj" path="res://Assets/Graphics/Tilesets/Tiles/tileset_medieval.tres" id="2_4wd40"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ihjlbdoog2bi" path="res://Scenes/Utils/EnvironmentalEventDetector/environmental_event_detector.tscn" id="13_4kdac"]
 [ext_resource type="PackedScene" uid="uid://cxskc76p0acr5" path="res://Scenes/Levels/Utils/Chest/chest.tscn" id="14_aalq1"]
 [ext_resource type="PackedScene" uid="uid://dm4a5slivl63o" path="res://Scenes/Levels/Utils/Potion/potion.tscn" id="15_mxkpo"]
+[ext_resource type="PackedScene" uid="uid://clgo65b43ti2h" path="res://Scenes/Levels/Utils/Sign/sign.tscn" id="16_8244g"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6288"]
 
@@ -71,7 +72,7 @@ centered = false
 
 [node name="Pyromancer" parent="." instance=ExtResource("5_l7frl")]
 z_index = 2
-position = Vector2(4236, 1715)
+position = Vector2(23, 1759)
 
 [node name="Camera2D" type="Camera2D" parent="Pyromancer"]
 limit_left = 0
@@ -140,6 +141,9 @@ type = 1
 [node name="ShrinkPotion2" parent="." instance=ExtResource("15_mxkpo")]
 position = Vector2(6055, 1768)
 type = 1
+
+[node name="Sign" parent="." instance=ExtResource("16_8244g")]
+position = Vector2(138, 1760)
 
 [connection signal="dead" from="Pyromancer" to="." method="_on_pyromancer_dead"]
 [connection signal="open" from="CastleDoor" to="." method="_on_castle_door_open"]

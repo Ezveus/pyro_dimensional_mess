@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://clgo65b43ti2h"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Utils/Sign/sign.gd" id="1_fifsu"]
+[ext_resource type="Texture2D" uid="uid://dtxq6jfsjiby0" path="res://Assets/Graphics/Tilesets/Tiles/tileset_medieval_town.png" id="2_fpi15"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx3es"]
+atlas = ExtResource("2_fpi15")
+region = Rect2(323, 460, 27, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1qto"]
+size = Vector2(20, 68)
+
+[node name="Sign" type="Area2D"]
+script = ExtResource("1_fifsu")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xx3es")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_y1qto")

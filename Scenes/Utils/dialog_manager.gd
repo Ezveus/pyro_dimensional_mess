@@ -15,7 +15,7 @@ var can_advance_line: bool = false
 
 signal dialog_finished
 
-func start_dialog(position: Vector2, lines: Array, speech_sfx: AudioStream) -> TextBox:
+func start_dialog(position: Vector2, lines: Array, speech_sfx: AudioStream = null) -> TextBox:
 	if is_dialog_active:
 		return text_box
 

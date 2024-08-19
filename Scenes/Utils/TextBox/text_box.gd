@@ -24,7 +24,8 @@ func _ready():
 func display_text(text: String, speech_sfx: AudioStream):
 	message = text
 	label.text = message
-	stream = speech_sfx
+	if speech_sfx:
+		stream = speech_sfx
 
 	await resized
 	custom_minimum_size.x = min(size.x, MAX_WIDTH)
@@ -68,9 +69,10 @@ func _display_letter():
 			if message[letter_index] in ['a', 'e', 'i', 'o', 'u', 'y']:
 				pitch_scale += 0.2
 
-			SoundUtils.play_speech(get_tree().root, stream, {
-				'pitch_scale': pitch_scale
-			})
+			if stream:
+				SoundUtils.play_speech(get_tree().root, stream, {
+					'pitch_scale': pitch_scale
+				})
 
 func _on_letter_display_timer_timeout():
 	_display_letter()

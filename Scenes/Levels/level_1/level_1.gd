@@ -35,7 +35,8 @@ func _on_castle_door_open():
 
 func show_start_game(body, _emitter):
 	body.talk([
-		"Well! Let's jump to this evil sorcerer!",
+		"Well! Let's run to this evil sorcerer!",
+		"(Press Shift to run)",
 		"(Press Space to jump)"
 	])
 
