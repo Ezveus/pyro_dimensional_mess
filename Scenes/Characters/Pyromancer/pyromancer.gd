@@ -13,7 +13,7 @@ func _ready():
 	super()
 
 	jump_velocity = jump_velocity_from_size()
-	speed = 200
+	speed = 100
 	health = int(size_level)
 	damage_rate = 50
 	orientation = 1
@@ -82,6 +82,12 @@ func jump_velocity_from_size() -> int:
 			return -350
 		_:
 			return -500
+
+func _unhandled_key_input(event):
+	if event.is_action_pressed('run'):
+		speed = 200
+	elif event.is_action_released('run'):
+		speed = 100
 
 func _on_hurting(damages=1):
 	if state == State.HURTING:
