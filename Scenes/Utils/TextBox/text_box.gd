@@ -10,6 +10,7 @@ class_name TextBox
 @onready var label: Label = $MarginContainer/Message
 @onready var letter_display_timer: Timer = $LetterDisplayTimer
 @onready var audio_player: AudioStreamPlayer2D = $SfxPlayer
+@onready var next_indicator: AnimatedSprite2D = $NinePatchRect/Control2/NextIndicator
 
 var letter_index = 0
 
@@ -47,6 +48,7 @@ func _display_letter():
 	letter_index += 1
 	if letter_index >= message.length():
 		finished_displaying.emit()
+		next_indicator.visible = true
 		return
 
 	match message[letter_index]:
@@ -72,3 +74,4 @@ func finish_display():
 	letter_display_timer.stop()
 	label.text = message
 	finished_displaying.emit()
+	next_indicator.visible = true
