@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://blbosdvf18lqh"]
+[gd_scene load_steps=10 format=3 uid="uid://blbosdvf18lqh"]
 
 [ext_resource type="Texture2D" uid="uid://chi3grok2j1of" path="res://Assets/Graphics/Pyromancer/Fire_projectile.png" id="1_cipen"]
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/fireball.gd" id="1_dbpfw"]
+[ext_resource type="AudioStream" uid="uid://dyv4e4es2n0g3" path="res://Assets/Sfx/fireball.wav" id="3_cgqrb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vj3tu"]
 atlas = ExtResource("1_cipen")
@@ -57,6 +58,10 @@ frame_progress = 0.920903
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(10, 1)
 shape = SubResource("CircleShape2D_st6al")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cgqrb")
+autoplay = true
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

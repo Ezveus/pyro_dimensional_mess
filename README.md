@@ -32,3 +32,4 @@ The ideas are derived from the jam's theme but come either from me or my girlfri
 ### Sfx
 
 - ["200 Free SFX" by Kronbits](https://kronbits.itch.io/freesfx)
+- ["RPG Essentials SFX - Free!" by Leohpaz](https://leohpaz.itch.io/rpg-essentials-sfx-free)
