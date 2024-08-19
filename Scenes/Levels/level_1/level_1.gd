@@ -17,17 +17,21 @@ func _ready():
 	shrink_potion2.on_entered = become_small
 
 func _on_pyromancer_dead():
-	call_deferred("change_scene_to_game_over")
+	call_deferred("change_scene_to", "res://Scenes/Screens/GameOverScreen/game_over_screen.tscn")
 
-func change_scene_to_game_over():
+func change_scene_to(path: String):
 	if is_inside_tree():
 		var tree = get_tree()
 
 		if tree:
-			tree.change_scene_to_file("res://Scenes/Screens/GameOverScreen/game_over_screen.tscn")
+			tree.change_scene_to_file(path)
 
 func _on_castle_door_open():
-	pyromancer.talk("End of the game!")
+	pyromancer.talk("I feel like burning some sorcerer!")
+	await DialogManager.dialog_finished
+	var tween = create_tween()
+	tween.tween_property(self, 'modulate', Color.BLACK, 1)
+	tween.tween_callback(Callable(self, 'call_deferred').bind("change_scene_to", "res://Scenes/Screens/StartScreen/start_screen.tscn"))
 
 func show_start_game(body, _emitter):
 	body.talk([

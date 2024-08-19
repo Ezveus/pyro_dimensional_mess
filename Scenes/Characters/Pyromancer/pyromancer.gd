@@ -61,11 +61,11 @@ func do_attack():
 	get_parent().add_child(fireball)
 	attack_cooldown_timer.start()
 
-func talk(message):
+func talk(message) -> TextBox:
 	if message is String:
-		DialogManager.start_dialog(global_position, [message])
-	elif message is Array:
-		DialogManager.start_dialog(global_position, message)
+		return DialogManager.start_dialog(global_position, [message])
+	else:
+		return DialogManager.start_dialog(global_position, message)
 
 func jump_velocity_from_size() -> int:
 	match size_level:
