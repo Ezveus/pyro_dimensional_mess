@@ -26,7 +26,7 @@ func _ready():
 	update_sprite()
 
 func drink():
-	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, 0, false)
+	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, { 'wait_for_end': false })
 	call_deferred('queue_free')
 
 func update_sprite():

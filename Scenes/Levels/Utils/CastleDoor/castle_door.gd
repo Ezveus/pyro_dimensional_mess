@@ -9,8 +9,6 @@ var counter: int = 0
 const DOOR_CLOSED_SFX: AudioStream = preload('res://Assets/Sfx/door_closed.wav')
 const DOOR_OPENED_SFX: AudioStream = preload('res://Assets/Sfx/door_opened.wav')
 
-@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
-
 func _ready():
 	super()
 
@@ -29,10 +27,10 @@ func try_to_open(body, _emitter):
 	counter += 1
 
 	if can_open_for(body):
-		play_sfx(DOOR_OPENED_SFX, 25)
+		SoundUtils.play_sfx(get_tree().root, DOOR_OPENED_SFX, { 'volume_db': 10, 'wait_for_end': false })
 		open.emit()
 	else:
-		play_sfx(DOOR_CLOSED_SFX, 100)
+		SoundUtils.play_sfx(get_tree().root, DOOR_CLOSED_SFX, { 'volume_db': 25, 'wait_for_end': false })
 
 		if body is Pyromancer:
 			var message = []
@@ -48,9 +46,3 @@ func try_to_open(body, _emitter):
 				message.append("I'm too small!")
 
 			body.talk(message)
-
-func play_sfx(sfx: AudioStream, volume: float = 0):
-	sfx_player.stream = sfx
-	sfx_player.volume_db = volume
-	sfx_player.play()
-	await sfx_player.finished

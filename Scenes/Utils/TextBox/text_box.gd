@@ -9,10 +9,10 @@ class_name TextBox
 
 @onready var label: Label = $MarginContainer/Message
 @onready var letter_display_timer: Timer = $LetterDisplayTimer
-@onready var sfx_player: AudioStreamPlayer = $SfxPlayer
 @onready var next_indicator: AnimatedSprite2D = $NinePatchRect/Control2/NextIndicator
 
 var letter_index = 0
+@export var stream: AudioStream
 
 const MAX_WIDTH = 256
 
@@ -24,8 +24,7 @@ func _ready():
 func display_text(text: String, speech_sfx: AudioStream):
 	message = text
 	label.text = message
-	if speech_sfx:
-		sfx_player.stream = speech_sfx
+	stream = speech_sfx
 
 	await resized
 	custom_minimum_size.x = min(size.x, MAX_WIDTH)
@@ -64,14 +63,14 @@ func _display_letter():
 			letter_display_timer.start(space_time)
 		_:
 			letter_display_timer.start(letter_time)
-			var new_sfx_player: AudioStreamPlayer = sfx_player.duplicate()
-			new_sfx_player.pitch_scale += randf_range(-0.1, 0.1)
+
+			var pitch_scale: float = 1 + randf_range(-0.1, 0.1)
 			if message[letter_index] in ['a', 'e', 'i', 'o', 'u', 'y']:
-				new_sfx_player.pitch_scale += 0.2
-			get_tree().root.add_child(new_sfx_player)
-			new_sfx_player.play()
-			await new_sfx_player.finished
-			new_sfx_player.queue_free()
+				pitch_scale += 0.2
+
+			SoundUtils.play_speech(get_tree().root, stream, {
+				'pitch_scale': pitch_scale
+			})
 
 func _on_letter_display_timer_timeout():
 	_display_letter()

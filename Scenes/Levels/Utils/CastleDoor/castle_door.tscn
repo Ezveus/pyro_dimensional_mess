@@ -20,5 +20,3 @@ texture = SubResource("AtlasTexture_eh6p8")
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_438to")
-
-[node name="SfxPlayer" type="AudioStreamPlayer" parent="."]

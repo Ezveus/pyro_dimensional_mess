@@ -19,7 +19,7 @@ func open():
 	opened = true
 	closed_sprite.visible = false
 	opened_sprite.visible = true
-	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, 0, false)
+	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, { 'wait_for_end': false })
 	call_deferred('update_collision_shape')
 
 func close():

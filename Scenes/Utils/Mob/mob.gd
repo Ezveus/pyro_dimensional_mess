@@ -121,7 +121,7 @@ func jump():
 	state = State.JUMPING
 	velocity.y = jump_velocity
 	animated_sprite.play("jump")
-	SoundUtils.play_sfx(self, JUMP_SOUND, 0, false)
+	SoundUtils.play_sfx(self, JUMP_SOUND, { 'wait_for_end': false })
 	move_and_slide()
 
 func fall(delta):
@@ -145,7 +145,7 @@ func hurt(damages: int = 1):
 	if can_be_hurt:
 		state = State.HURTING
 		animated_sprite.play('hurt')
-		SoundUtils.play_sfx(self, HURT_SOUND, 0, false)
+		SoundUtils.play_sfx(self, HURT_SOUND, { 'wait_for_end': false })
 		hurting.emit(damages)
 
 func die():
