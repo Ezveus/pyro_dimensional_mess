@@ -2,8 +2,6 @@ extends "res://Scenes/Utils/Mob/mob.gd"
 
 class_name Centaur
 
-const SPEED: int = 250
-
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 
 func update_state():
@@ -17,7 +15,7 @@ func update_state():
 func scan_for_enemies():
 	if ray_cast_left.is_colliding():
 		state = State.RUNNING
-		velocity.x = orientation * SPEED
+		velocity.x = orientation * speed
 	else:
 		state = State.IDLE
 

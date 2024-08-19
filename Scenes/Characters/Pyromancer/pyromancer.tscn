@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cb5xiuocagj3l"]
+[gd_scene load_steps=44 format=3 uid="uid://cb5xiuocagj3l"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/Pyromancer/pyromancer.gd" id="1_jtlxj"]
 [ext_resource type="Texture2D" uid="uid://blg67oah41j14" path="res://Assets/Graphics/Pyromancer/IDLE.png" id="1_rndbv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bv4jxp3qcoqnt" path="res://Assets/Graphics/Pyromancer/HURT.png" id="4_6gdol"]
 [ext_resource type="Texture2D" uid="uid://6grmwbd5a3nl" path="res://Assets/Graphics/Pyromancer/WALK.png" id="6_0ddwy"]
 [ext_resource type="Script" path="res://Scenes/Utils/Mob/hurtbox.gd" id="7_o617v"]
+[ext_resource type="AudioStream" uid="uid://dmxhr2t21gpy" path="res://Assets/Sfx/step_grass.wav" id="8_7ajn3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjnnb"]
 atlas = ExtResource("2_opnwc")
@@ -257,6 +258,29 @@ size = Vector2(25, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2rmd3"]
 size = Vector2(32, 55)
 
+[sub_resource type="Animation" id="Animation_2lgoj"]
+resource_name = "run"
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0959706),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_footstep_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6xcq3"]
+_data = {
+"run": SubResource("Animation_2lgoj")
+}
+
 [node name="Pyromancer" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 72
@@ -288,6 +312,16 @@ debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
 
 [node name="CastingPoint" type="Marker2D" parent="."]
 position = Vector2(19, 10)
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7ajn3")
+volume_db = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6xcq3")
+}
+speed_scale = 1.5
 
 [connection signal="hurting" from="." to="." method="_on_hurting"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]

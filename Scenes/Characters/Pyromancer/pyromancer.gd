@@ -2,7 +2,6 @@ extends "res://Scenes/Utils/Mob/mob.gd"
 
 class_name Pyromancer
 
-const SPEED = 200.0
 const FIREBALL = preload('res://Scenes/Characters/Pyromancer/fireball.tscn')
 const TEXT_BOX = preload('res://Scenes/Utils/TextBox/text_box.tscn')
 const SPEECH_SOUND = preload('res://Assets/Sfx/pyromancer_speech.wav')
@@ -14,6 +13,7 @@ func _ready():
 	super()
 
 	jump_velocity = jump_velocity_from_size()
+	speed = 200
 	health = int(size_level)
 	damage_rate = 50
 	orientation = 1
@@ -49,9 +49,9 @@ func update_state():
 		state = State.FALLING
 
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 func do_attack():
 	var fireball = FIREBALL.instantiate()
