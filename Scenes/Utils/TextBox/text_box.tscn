@@ -144,7 +144,7 @@ visible = false
 position = Vector2(35, 38)
 sprite_frames = SubResource("SpriteFrames_psa7v")
 autoplay = "default"
-frame_progress = 0.114321
+frame_progress = 0.409888
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

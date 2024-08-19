@@ -18,6 +18,9 @@ const MAX_WIDTH = 256
 
 signal finished_displaying
 
+func _ready():
+	scale = Vector2.ZERO
+
 func display_text(text: String, speech_sfx: AudioStream):
 	message = text
 	label.text = message
@@ -34,13 +37,16 @@ func display_text(text: String, speech_sfx: AudioStream):
 		custom_minimum_size.y = size.y
 
 	global_position.x -= size.x / 2
-
-	# This was found through experimentation.
-	var scale_delta = 22 # 9 * parent_scale * parent_scale + 13 * parent_scale
-	global_position.y -= size.y + scale_delta
+	global_position.y -= size.y + 32
 
 	label.text = ''
-	letter_display_timer.start()
+
+	pivot_offset = Vector2(size.x / 2, size.y)
+
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, 'scale', Vector2.ONE, 0.15).set_trans(Tween.TRANS_BACK)
+
+	_display_letter()
 
 func _display_letter():
 	label.text += message[letter_index]
