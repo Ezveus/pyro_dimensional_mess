@@ -30,13 +30,24 @@ func _on_castle_door_open():
 	pyromancer.talk("End of the game!")
 
 func show_start_game(body, _emitter):
-	body.talk("Well! Let's jump (press Space) to this evil sorcerer!")
+	body.talk([
+		"Well! Let's jump to this evil sorcerer!",
+		"(Press Space to jump)"
+	])
 
 func show_cast_tuto(body, _emitter):
-	body.talk("Centaurs! If our eyes meet, they'll charge at me. Fortunately, a fireball (press Ctrl) will solve the problem.")
+	body.talk([
+		"Centaurs! If our eyes meet, they'll charge at me. Fortunately, a fireball will solve the problem.",
+		"(Press Ctrl or Cmd or Option or Alt to cast a fireball)"
+	])
 
 func show_size_tuto(body, _emitter):
-	body.talk("By Pyrrhos! This centaur is gigantic! Surely an effect of the dimensional spell. I’m going to need a few more fireballs...")
+	body.talk([
+		"By Pyrrhos! This centaur is gigantic!",
+		"Surely an effect of the dimensional spell. I’m going to need a few more fireballs!",
+		"Gladly, I'm so small for him, he can't see me.",
+		"I may even be able to go under him unnoticed..."
+	])
 
 func become_big(body, emitter):
 	if body is Pyromancer:

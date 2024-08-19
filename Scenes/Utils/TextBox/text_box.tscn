@@ -5,10 +5,8 @@
 [ext_resource type="Theme" uid="uid://cdgll2umerlv0" path="res://Theme/text_box_theme.tres" id="3_qi8sm"]
 
 [node name="TextBox" type="MarginContainer"]
+z_index = 2
 script = ExtResource("1_lcxw7")
-
-[node name="ActiveTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
@@ -33,6 +31,4 @@ vertical_alignment = 1
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="finished_displaying" from="." to="." method="_on_finished_displaying"]
-[connection signal="timeout" from="ActiveTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

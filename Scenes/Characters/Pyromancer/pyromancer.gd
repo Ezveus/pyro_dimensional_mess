@@ -18,6 +18,10 @@ func _ready():
 	orientation = 1
 
 func update_state():
+	if DialogManager.is_dialog_active:
+		state = State.IDLE
+		return
+
 	if state == State.DYING:
 		return
 
@@ -58,11 +62,10 @@ func do_attack():
 	attack_cooldown_timer.start()
 
 func talk(message):
-	var text_box = TEXT_BOX.instantiate()
-
-	get_tree().root.add_child(text_box)
-	text_box.position = global_position
-	text_box.display_text(message, size())
+	if message is String:
+		DialogManager.start_dialog(global_position, [message])
+	elif message is Array:
+		DialogManager.start_dialog(global_position, message)
 
 func jump_velocity_from_size() -> int:
 	match size_level:

@@ -1,14 +1,13 @@
 extends Control
 
+class_name TextBox
+
 @export var message: String
-@export var letter_time: float = 0.03
-@export var space_time: float = 0.06
-@export var punctuation_time: float = 0.2
-@export var expires_in: int = 10
-@export var active: bool = false
+@export var letter_time: float = 0.01
+@export var space_time: float = 0.04
+@export var punctuation_time: float = 0.1
 
 @onready var label: Label = $MarginContainer/Message
-@onready var active_timer: Timer = $ActiveTimer
 @onready var letter_display_timer: Timer = $LetterDisplayTimer
 
 var letter_index = 0
@@ -16,17 +15,6 @@ var letter_index = 0
 const MAX_WIDTH = 256
 
 signal finished_displaying
-
-func _on_timer_timeout():
-	call_deferred('queue_free')
-
-func activate():
-	active = true
-	active_timer.start()
-
-func deactivate():
-	active = false
-	active_timer.stop()
 
 func display_text(text: String, parent_scale: int = 1):
 	message = text
@@ -69,5 +57,7 @@ func _display_letter():
 func _on_letter_display_timer_timeout():
 	_display_letter()
 
-func _on_finished_displaying():
-	activate()
+func finish_display():
+	letter_display_timer.stop()
+	label.text = message
+	finished_displaying.emit()
