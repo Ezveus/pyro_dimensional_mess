@@ -290,5 +290,4 @@ debug_color = Color(0.902881, 0.244467, 0.481905, 0.42)
 position = Vector2(19, 10)
 
 [connection signal="hurting" from="." to="." method="_on_hurting"]
-[connection signal="size_decreased" from="." to="." method="_on_size_decreased"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_recovery_timer_timeout"]

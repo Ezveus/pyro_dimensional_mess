@@ -12,11 +12,7 @@ const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
 	get:
 		return on_entered
 	set(callable):
-		if on_entered && body_entered.is_connected(on_entered):
-			body_entered.disconnect(on_entered)
 		on_entered = callable
-		if on_entered:
-			body_entered.connect(on_entered)
 
 func _ready():
 	##
@@ -25,9 +21,17 @@ func _ready():
 	update_scale()
 	size_changed.connect(_on_size_changed)
 
-	if on_entered:
-		body_entered.connect(on_entered)
+	body_entered.connect(_on_body_entered)
 
+@onready var collision_shape: CollisionShape2D = $CollisionShape
+
+func update_collision_shape():
+	collision_shape.disabled = true
+
+func _on_body_entered(body):
+	if on_entered:
+		on_entered.call(body, self)
+	call_deferred('update_collision_shape')
 #
 # Size-related stuff
 #

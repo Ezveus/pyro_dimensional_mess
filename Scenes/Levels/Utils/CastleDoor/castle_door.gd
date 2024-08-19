@@ -7,7 +7,10 @@ signal open
 func _ready():
 	super()
 
-	on_entered = _on_body_entered
+	on_entered = try_to_open
+
+func update_collision_shape():
+	pass
 
 func can_open_for(body) -> bool:
 	if !'size_level' in body:
@@ -15,7 +18,7 @@ func can_open_for(body) -> bool:
 
 	return body.size_level == size_level
 
-func _on_body_entered(body):
+func try_to_open(body, _emitter):
 	if can_open_for(body):
 		open.emit()
 	elif body.has_method("talk"):

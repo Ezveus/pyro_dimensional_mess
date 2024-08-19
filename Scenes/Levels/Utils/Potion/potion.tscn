@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm4a5slivl63o"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Utils/Potion/potion.gd" id="1_wunfc"]
+[ext_resource type="Texture2D" uid="uid://moxmfpdic6bs" path="res://Assets/Graphics/Props/props.png" id="2_tg0ul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6t6p"]
+atlas = ExtResource("2_tg0ul")
+region = Rect2(17, 65, 14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lub6"]
+size = Vector2(14, 16)
+
+[node name="Potion" type="Area2D"]
+script = ExtResource("1_wunfc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_q6t6p")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0lub6")

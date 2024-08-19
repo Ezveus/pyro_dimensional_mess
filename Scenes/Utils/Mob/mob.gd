@@ -44,7 +44,8 @@ func _ready():
 	## Size-related stuff
 	##
 	update_scale()
-	size_changed.connect(_on_size_changed)
+	size_increased.connect(_on_size_increased)
+	size_decreased.connect(_on_size_decreased)
 
 func _physics_process(delta):
 	debug_message("_physics_process[-1]: Current state: %s, force_state: %s" % [state_as_string(), state_as_string(force_state)])
@@ -160,12 +161,14 @@ func _on_attack_cooldown_timer_timeout():
 ##
 ## Size-related stuff
 ##
-signal size_changed
 signal size_increased
 signal size_decreased
 
-func _on_size_changed():
-	update_scale()
+func _on_size_increased():
+	update_scale(true)
+
+func _on_size_decreased():
+	update_scale(false)
 
 func size_level_as_string() -> String:
 	return SizeUtils.size_level_as_string(size_level)
@@ -173,17 +176,26 @@ func size_level_as_string() -> String:
 func size() -> float:
 	return SizeUtils.size(size_level)
 
-func update_scale():
-	var current_size = size()
-	scale.x = current_size
-	scale.y = current_size
+func sprite_size():
+	return $AnimatedSprite2D.sprite_frames.get_frame_texture('idle', 0).get_size() * $AnimatedSprite2D.scale
+
+func update_scale(increased: bool = false):
+	var target_scale = size()
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2(target_scale, target_scale), 1)
+	tween.tween_callback(Callable(self, 'escape_from_ground').bind(increased))
+
+func escape_from_ground(increased: bool = false):
+	if increased:
+		position.y -= sprite_size().y - 10
+		move_and_slide()
+	else:
+		force_state = State.FALLING
 
 func decrease_size(step=1):
 	size_level = SizeUtils.decrease_size(size_level, step)
-	size_changed.emit()
 	size_decreased.emit()
 
 func increase_size(step=1):
 	size_level = SizeUtils.increase_size(size_level, step)
-	size_changed.emit()
 	size_increased.emit()

@@ -71,11 +71,11 @@ func jump_velocity_from_size() -> int:
 		Enums.SizeLevel.S:
 			return -400
 		Enums.SizeLevel.M:
-			return -300
+			return -325
 		Enums.SizeLevel.L:
-			return -200
+			return -275
 		Enums.SizeLevel.XL:
-			return -100
+			return -350
 		_:
 			return -500
 
@@ -95,9 +95,11 @@ func _on_recovery_timer_timeout():
 	can_be_hurt = true
 
 func _on_size_decreased():
-	force_state = State.FALLING
+	super()
 
-func _on_size_changed():
+	jump_velocity = jump_velocity_from_size()
+
+func _on_size_increased():
 	super()
 
 	jump_velocity = jump_velocity_from_size()

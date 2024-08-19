@@ -79,6 +79,6 @@ sprite_frames = SubResource("SpriteFrames_hrbmh")
 autoplay = "default"
 frame_progress = 0.0699437
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -4.5)
 shape = SubResource("RectangleShape2D_n8nlj")

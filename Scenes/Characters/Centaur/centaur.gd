@@ -37,6 +37,3 @@ func _on_hurting(damages=1):
 			force_state = State.DYING
 		else:
 			state = State.IDLE
-
-func _on_size_decreased():
-	force_state = State.FALLING

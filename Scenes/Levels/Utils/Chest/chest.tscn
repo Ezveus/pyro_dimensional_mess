@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxskc76p0acr5"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Utils/Chest/chest.gd" id="1_kdtc3"]
+[ext_resource type="Texture2D" uid="uid://b8bvrso8dq1t4" path="res://Assets/Graphics/Tilesets/Objects/Objects.png" id="2_y0h8b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iyu4"]
+atlas = ExtResource("2_y0h8b")
+region = Rect2(32, 40, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crl8m"]
+atlas = ExtResource("2_y0h8b")
+region = Rect2(32, 70, 36, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj5i1"]
+size = Vector2(32, 23)
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_kdtc3")
+
+[node name="ClosedSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_3iyu4")
+
+[node name="OpenedSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_crl8m")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_xj5i1")
