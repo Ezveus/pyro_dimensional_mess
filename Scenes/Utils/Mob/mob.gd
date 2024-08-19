@@ -14,6 +14,7 @@ enum State {
 
 const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
 const JUMP_SOUND = preload("res://Assets/Sfx/jump.wav")
+const HURT_SOUND = preload("res://Assets/Sfx/hit.wav")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurt_box: Area2D = $Hurtbox
@@ -144,6 +145,7 @@ func hurt(damages: int = 1):
 	if can_be_hurt:
 		state = State.HURTING
 		animated_sprite.play('hurt')
+		SoundUtils.play_sfx(self, HURT_SOUND, 0, false)
 		hurting.emit(damages)
 
 func die():
