@@ -18,6 +18,7 @@ config/icon="res://Assets/Graphics/Icon/pyro_mess_icon.jpeg"
 [autoload]
 
 DialogManager="*res://Scenes/Utils/dialog_manager.gd"
+UiSoundManager="*res://Scenes/Utils/Sound/ui_sound_manager.gd"
 
 [display]
 
