@@ -7,6 +7,8 @@ class_name Chest
 @onready var closed_sprite: Sprite2D = $ClosedSprite
 @onready var opened_sprite: Sprite2D = $OpenedSprite
 
+const SUCCESS_SOUND = preload("res://Assets/Sfx/success.wav")
+
 func _ready():
 	super()
 
@@ -17,6 +19,7 @@ func open():
 	opened = true
 	closed_sprite.visible = false
 	opened_sprite.visible = true
+	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, 0, false)
 	call_deferred('update_collision_shape')
 
 func close():

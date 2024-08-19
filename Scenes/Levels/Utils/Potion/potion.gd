@@ -8,6 +8,8 @@ enum Type {
 	GROW
 }
 
+const SUCCESS_SOUND = preload("res://Assets/Sfx/success.wav")
+
 @onready var sprite: Sprite2D = $Sprite
 
 @export var type: Type = Type.EMPTY:
@@ -24,6 +26,7 @@ func _ready():
 	update_sprite()
 
 func drink():
+	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, 0, false)
 	call_deferred('queue_free')
 
 func update_sprite():
