@@ -171,11 +171,11 @@ signal size_increased
 signal size_decreased
 
 func _on_size_increased():
-	SoundUtils.play_sfx(get_tree().root, SIZE_INCREASED_SFX, { 'wait_for_end': false })
+	SoundUtils.play_sfx(self, SIZE_INCREASED_SFX, { 'wait_for_end': false })
 	update_scale(true)
 
 func _on_size_decreased():
-	SoundUtils.play_sfx(get_tree().root, SIZE_DECREASED_SFX, { 'wait_for_end': false })
+	SoundUtils.play_sfx(self, SIZE_DECREASED_SFX, { 'wait_for_end': false })
 	update_scale(false)
 
 func size_level_as_string() -> String:

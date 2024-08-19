@@ -11,10 +11,13 @@ static func play_music(parent_node, stream: AudioStream, config: Dictionary = {}
 
 static func play_sfx(parent_node, stream: AudioStream, config: Dictionary = {}):
 	config.merge({ 'bus': 'Sfx' }, true)
+
+	if !config.has('2D'):
+		config['2D'] = true
 	play_stream(parent_node, stream, config)
 
 static func play_stream(parent_node, stream: AudioStream, config: Dictionary = {}):
-	var stream_player = AudioStreamPlayer.new()
+	var stream_player = AudioStreamPlayer2D.new() if config.has('2D') && config['2D'] else AudioStreamPlayer.new()
 
 	stream_player.stream = stream
 	parent_node.add_child(stream_player)

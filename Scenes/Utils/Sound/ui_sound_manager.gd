@@ -13,10 +13,10 @@ func _on_SceneTree_node_added(node):
 		connect_to_button(node)
 
 func _on_BaseButton_pressed(button):
-	SoundUtils.play_sfx(button, PRESSED_SFX)
+	SoundUtils.play_sfx(button, PRESSED_SFX, { '2D': false })
 
 func _on_BaseButton_hovered(button):
-	SoundUtils.play_sfx(button, HOVERED_SFX)
+	SoundUtils.play_sfx(button, HOVERED_SFX, { '2D': false })
 
 # recursively connect all buttons
 func connect_buttons(root):

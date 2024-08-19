@@ -15,11 +15,11 @@ func _ready():
 	if opened:
 		open()
 
-func open():
+func open(player=null):
 	opened = true
 	closed_sprite.visible = false
 	opened_sprite.visible = true
-	SoundUtils.play_sfx(get_tree().root, SUCCESS_SOUND, { 'wait_for_end': false })
+	SoundUtils.play_sfx(player if player else self, SUCCESS_SOUND, { 'wait_for_end': false })
 	call_deferred('update_collision_shape')
 
 func close():

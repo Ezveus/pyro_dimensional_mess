@@ -23,14 +23,14 @@ func can_open_for(body) -> bool:
 
 	return body.size_level == size_level
 
-func try_to_open(body, _emitter):
+func try_to_open(body, emitter):
 	counter += 1
 
 	if can_open_for(body):
-		SoundUtils.play_sfx(get_tree().root, DOOR_OPENED_SFX, { 'volume_db': 10, 'wait_for_end': false })
+		SoundUtils.play_sfx(emitter, DOOR_OPENED_SFX, { 'volume_db': 10, 'wait_for_end': false })
 		open.emit()
 	else:
-		SoundUtils.play_sfx(get_tree().root, DOOR_CLOSED_SFX, { 'volume_db': 25, 'wait_for_end': false })
+		SoundUtils.play_sfx(emitter, DOOR_CLOSED_SFX, { 'volume_db': 25, 'wait_for_end': false })
 
 		if body is Pyromancer:
 			var message = []
