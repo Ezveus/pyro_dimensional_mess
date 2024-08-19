@@ -261,8 +261,6 @@ size = Vector2(32, 55)
 z_index = 1
 collision_mask = 72
 script = ExtResource("1_jtlxj")
-size_level = null
-debug = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -2)

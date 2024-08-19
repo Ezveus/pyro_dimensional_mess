@@ -13,6 +13,7 @@ enum State {
 }
 
 const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
+const JUMP_SOUND = preload("res://Assets/Sfx/jump.wav")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurt_box: Area2D = $Hurtbox
@@ -119,6 +120,7 @@ func jump():
 	state = State.JUMPING
 	velocity.y = jump_velocity
 	animated_sprite.play("jump")
+	SoundUtils.play_sfx(self, JUMP_SOUND, 0, false)
 	move_and_slide()
 
 func fall(delta):
