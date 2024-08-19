@@ -15,6 +15,8 @@ enum State {
 const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
 const JUMP_SOUND = preload("res://Assets/Sfx/jump.wav")
 const HURT_SOUND = preload("res://Assets/Sfx/hit.wav")
+const SIZE_DECREASED_SFX = preload("res://Assets/Sfx/size_decrease.wav")
+const SIZE_INCREASED_SFX = preload("res://Assets/Sfx/size_increase.wav")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hurt_box: Area2D = $Hurtbox
@@ -169,9 +171,11 @@ signal size_increased
 signal size_decreased
 
 func _on_size_increased():
+	SoundUtils.play_sfx(get_tree().root, SIZE_INCREASED_SFX, { 'wait_for_end': false })
 	update_scale(true)
 
 func _on_size_decreased():
+	SoundUtils.play_sfx(get_tree().root, SIZE_DECREASED_SFX, { 'wait_for_end': false })
 	update_scale(false)
 
 func size_level_as_string() -> String:
