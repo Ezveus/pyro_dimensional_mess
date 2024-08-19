@@ -28,3 +28,7 @@ The ideas are derived from the jam's theme but come either from me or my girlfri
 ### Music
 
 - ["SVL's RPG Music Pack" by Shononoki](https://shononoki.itch.io/rpg-music-pack-svl)
+
+### Sfx
+
+- ["200 Free SFX" by Kronbits](https://kronbits.itch.io/freesfx)

@@ -5,6 +5,7 @@ class_name Pyromancer
 const SPEED = 200.0
 const FIREBALL = preload('res://Scenes/Characters/Pyromancer/fireball.tscn')
 const TEXT_BOX = preload('res://Scenes/Utils/TextBox/text_box.tscn')
+const SPEECH_SOUND = preload('res://Assets/Sfx/pyromancer_speech.wav')
 
 @onready var recovery_timer: Timer = $RecoveryTimer
 @onready var casting_point: Marker2D = $CastingPoint
@@ -61,11 +62,11 @@ func do_attack():
 	get_parent().add_child(fireball)
 	attack_cooldown_timer.start()
 
-func talk(message) -> TextBox:
-	if message is String:
-		return DialogManager.start_dialog(global_position, [message])
-	else:
-		return DialogManager.start_dialog(global_position, message)
+func talk(messages) -> TextBox:
+	if messages is String:
+		messages = [messages]
+
+	return DialogManager.start_dialog(global_position, messages, SPEECH_SOUND)
 
 func jump_velocity_from_size() -> int:
 	match size_level:

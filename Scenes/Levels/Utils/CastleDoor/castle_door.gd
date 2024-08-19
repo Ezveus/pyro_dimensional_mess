@@ -25,7 +25,7 @@ func try_to_open(body, _emitter):
 
 	if can_open_for(body):
 		open.emit()
-	else:
+	elif body is Pyromancer:
 		var message = []
 
 		if counter < 2:
@@ -33,10 +33,9 @@ func try_to_open(body, _emitter):
 		else:
 			message.append("I still can't open this door.")
 
-		if 'size_level' in body:
-			if body.size_level > size_level:
-				message.append("I'm too big!")
-			else:
-				message.append("I'm too small!")
+		if body.size_level > size_level:
+			message.append("I'm too big!")
+		else:
+			message.append("I'm too small!")
 
-		DialogManager.start_dialog(global_position, message)
+		body.talk(message)

@@ -9,6 +9,7 @@ class_name TextBox
 
 @onready var label: Label = $MarginContainer/Message
 @onready var letter_display_timer: Timer = $LetterDisplayTimer
+@onready var audio_player: AudioStreamPlayer2D = $SfxPlayer
 
 var letter_index = 0
 
@@ -16,9 +17,11 @@ const MAX_WIDTH = 256
 
 signal finished_displaying
 
-func display_text(text: String, parent_scale: int = 1):
+func display_text(text: String, speech_sfx: AudioStream):
 	message = text
 	label.text = message
+	if speech_sfx:
+		audio_player.stream = speech_sfx
 
 	await resized
 	custom_minimum_size.x = min(size.x, MAX_WIDTH)
@@ -32,7 +35,7 @@ func display_text(text: String, parent_scale: int = 1):
 	global_position.x -= size.x / 2
 
 	# This was found through experimentation.
-	var scale_delta = 9 * parent_scale * parent_scale + 13 * parent_scale
+	var scale_delta = 22 # 9 * parent_scale * parent_scale + 13 * parent_scale
 	global_position.y -= size.y + scale_delta
 
 	label.text = ''
@@ -53,6 +56,14 @@ func _display_letter():
 			letter_display_timer.start(space_time)
 		_:
 			letter_display_timer.start(letter_time)
+			var new_audio_player: AudioStreamPlayer2D = audio_player.duplicate()
+			new_audio_player.pitch_scale += randf_range(-0.1, 0.1)
+			if message[letter_index] in ['a', 'e', 'i', 'o', 'u', 'y']:
+				new_audio_player.pitch_scale += 0.2
+			get_tree().root.add_child(new_audio_player)
+			new_audio_player.play()
+			await new_audio_player.finished
+			new_audio_player.queue_free()
 
 func _on_letter_display_timer_timeout():
 	_display_letter()
