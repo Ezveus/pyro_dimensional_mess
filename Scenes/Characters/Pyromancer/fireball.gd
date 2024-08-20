@@ -10,6 +10,7 @@ var traveled_distance = 0
 const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
 
 @export var size_level: Enums.SizeLevel = Enums.SizeLevel.M
+var parent: CharacterBody2D
 
 func _ready():
 	update_scale()
@@ -38,6 +39,9 @@ func _on_body_entered(body):
 	hurt_enemy(body)
 
 func hurt_enemy(enemy):
-	queue_free()
-	if enemy.has_method('hurt'):
-		enemy.hurt(int(size_level))
+	if enemy.has_method('hurt') && enemy != parent:
+		queue_free()
+		var damages = int(size_level)
+		if parent is Sorcerer:
+			damages = 1
+		enemy.hurt(damages)

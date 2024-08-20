@@ -56,6 +56,7 @@ func update_state():
 func do_attack():
 	var fireball = FIREBALL.instantiate()
 
+	fireball.parent = self
 	fireball.global_position = casting_point.global_position
 	fireball.rotation_degrees = (180 if orientation < 0 else 0)
 	fireball.size_level = size_level

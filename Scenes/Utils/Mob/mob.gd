@@ -19,10 +19,11 @@ const SIZE_DECREASED_SFX = preload("res://Assets/Sfx/size_decrease.wav")
 const SIZE_INCREASED_SFX = preload("res://Assets/Sfx/size_increase.wav")
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurt_box: Area2D = $Hurtbox
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var footstep_audioplayer: AudioStreamPlayer2D = $Footstep
+
+var hurt_box: Area2D
+var animation_player: AnimationPlayer
+var footstep_audioplayer: AudioStreamPlayer2D
 
 @export var size_level: Enums.SizeLevel = Enums.SizeLevel.M
 
@@ -44,6 +45,12 @@ signal hurting(damages: int)
 signal dead
 
 func _ready():
+	if has_node('Hurtbox'):
+		hurt_box = $Hurtbox
+	if has_node('AnimationPlayer'):
+		animation_player = $AnimationPlayer
+	if has_node('Footstep'):
+		footstep_audioplayer = $Footstep
 	health = int(size_level)
 	hurt_box.area_entered.connect(_on_hurtbox_area_entered)
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)

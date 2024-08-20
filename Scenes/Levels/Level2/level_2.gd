@@ -28,9 +28,10 @@ func change_scene_to(path: String):
 		if tree:
 			tree.change_scene_to_file(path)
 
-func _on_castle_door_open():
-	pyromancer.talk(['Nice!', "Let's call this a day!"])
-	await DialogManager.dialog_finished
-	var tween = create_tween()
-	tween.tween_property(self, 'modulate', Color.BLACK, 1)	
-	tween.tween_callback(Callable(self, 'call_deferred').bind("change_scene_to", "res://Scenes/Screens/EndGameScreen/end_game_screen.tscn"))
+func _on_sorcerer_dead():
+	if pyromancer.health > 0:
+		pyromancer.talk(['Nice!', "Let's call this a day!"])
+		await DialogManager.dialog_finished
+		var tween = create_tween()
+		tween.tween_property(self, 'modulate', Color.BLACK, 1)	
+		tween.tween_callback(Callable(self, 'call_deferred').bind("change_scene_to", "res://Scenes/Screens/EndGameScreen/end_game_screen.tscn"))

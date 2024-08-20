@@ -57,7 +57,7 @@ func show_size_tuto(body, _emitter):
 func become_big(body, emitter):
 	if body is Pyromancer:
 		emitter.open(body)
-		body.increase_size(2)
+		body.increase_size(20)
 		body.talk("WHAT! I'M SO BIG! NOW I WILL BURN THOSE BIG CENTAURS WITH EASE.")
 
 func become_small(body, emitter):
