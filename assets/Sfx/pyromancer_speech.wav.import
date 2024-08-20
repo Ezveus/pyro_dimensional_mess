@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bgmr78iqu2q28"
-path="res://.godot/imported/pyromancer_speech.wav-f6c32f300ba4423d48c823c2fe91fdc8.sample"
+path="res://.godot/imported/pyromancer_speech.wav-4302430dc6b79eec3997caf3d21fdd4b.sample"
 
 [deps]
 
-source_file="res://Assets/Sfx/pyromancer_speech.wav"
-dest_files=["res://.godot/imported/pyromancer_speech.wav-f6c32f300ba4423d48c823c2fe91fdc8.sample"]
+source_file="res://assets/Sfx/pyromancer_speech.wav"
+dest_files=["res://.godot/imported/pyromancer_speech.wav-4302430dc6b79eec3997caf3d21fdd4b.sample"]
 
 [params]
 

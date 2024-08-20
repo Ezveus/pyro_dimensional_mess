@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cd582yn8igftm"
-path="res://.godot/imported/size_increase.wav-8a7ee1f80e4eda477dd001908dd43c91.sample"
+path="res://.godot/imported/size_increase.wav-ac65a1ebe771156102691faf7dd9c24c.sample"
 
 [deps]
 
-source_file="res://Assets/Sfx/size_increase.wav"
-dest_files=["res://.godot/imported/size_increase.wav-8a7ee1f80e4eda477dd001908dd43c91.sample"]
+source_file="res://assets/Sfx/size_increase.wav"
+dest_files=["res://.godot/imported/size_increase.wav-ac65a1ebe771156102691faf7dd9c24c.sample"]
 
 [params]
 

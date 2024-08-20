@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxqgsd85c4wgd"
-path="res://.godot/imported/pyro_mess_icon.jpeg-d8d0c3a0698d58d0c1454c291e686bcb.ctex"
+path="res://.godot/imported/pyro_mess_icon.jpeg-a66e1c111af3e7037a0c14084f43ce1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Icon/pyro_mess_icon.jpeg"
-dest_files=["res://.godot/imported/pyro_mess_icon.jpeg-d8d0c3a0698d58d0c1454c291e686bcb.ctex"]
+source_file="res://assets/Graphics/Icon/pyro_mess_icon.jpeg"
+dest_files=["res://.godot/imported/pyro_mess_icon.jpeg-a66e1c111af3e7037a0c14084f43ce1f.ctex"]
 
 [params]
 
