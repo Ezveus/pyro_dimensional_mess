@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvwtkptlrmrv8"
-path="res://.godot/imported/Grass Mountains.png-518f51b8c3534270cb954d3909db3fc3.ctex"
+path="res://.godot/imported/Grass Mountains.png-798ea4dc503f3e44fc68d1330a993bc6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Graphics/Tilesets/Backgrounds/Grass Mountains.png"
-dest_files=["res://.godot/imported/Grass Mountains.png-518f51b8c3534270cb954d3909db3fc3.ctex"]
+source_file="res://Assets/Graphics/Tilesets/Backgrounds/Grass Mountains.png"
+dest_files=["res://.godot/imported/Grass Mountains.png-798ea4dc503f3e44fc68d1330a993bc6.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8otw8uq7otwt"
-path="res://.godot/imported/ENCHANTER.png-d6052e3070670a71412253ce45ef44fe.ctex"
+path="res://.godot/imported/ENCHANTER.png-312b239f97f56e1a3147820a2df57724.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Graphics/Enchanter/ENCHANTER.png"
-dest_files=["res://.godot/imported/ENCHANTER.png-d6052e3070670a71412253ce45ef44fe.ctex"]
+source_file="res://Assets/Graphics/Enchanter/ENCHANTER.png"
+dest_files=["res://.godot/imported/ENCHANTER.png-312b239f97f56e1a3147820a2df57724.ctex"]
 
 [params]
 

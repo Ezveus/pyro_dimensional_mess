@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://7xjy78q7lxjx"
-path="res://.godot/imported/enchantress_speech.wav-d343d48255058cd0abf143b4c09a3636.sample"
+path="res://.godot/imported/enchantress_speech.wav-180b6716bc3473574327831c3b1875ca.sample"
 
 [deps]
 
-source_file="res://assets/Sfx/enchantress_speech.wav"
-dest_files=["res://.godot/imported/enchantress_speech.wav-d343d48255058cd0abf143b4c09a3636.sample"]
+source_file="res://Assets/Sfx/enchantress_speech.wav"
+dest_files=["res://.godot/imported/enchantress_speech.wav-180b6716bc3473574327831c3b1875ca.sample"]
 
 [params]
 

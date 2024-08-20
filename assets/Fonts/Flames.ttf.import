@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dksd46e6qn8vg"
-path="res://.godot/imported/Flames.ttf-798cb71b45d6dcf0356b690b5fcde53d.fontdata"
+path="res://.godot/imported/Flames.ttf-52b46698089c969fa9af7370389747fb.fontdata"
 
 [deps]
 
-source_file="res://assets/Fonts/Flames.ttf"
-dest_files=["res://.godot/imported/Flames.ttf-798cb71b45d6dcf0356b690b5fcde53d.fontdata"]
+source_file="res://Assets/Fonts/Flames.ttf"
+dest_files=["res://.godot/imported/Flames.ttf-52b46698089c969fa9af7370389747fb.fontdata"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtxq6jfsjiby0"
-path="res://.godot/imported/tileset_medieval_town.png-31007236195e970306f727e864cbd083.ctex"
+path="res://.godot/imported/tileset_medieval_town.png-8df1d4ad5f2b89d5df1bd28cb7d9904e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Graphics/Tilesets/Tiles/tileset_medieval_town.png"
-dest_files=["res://.godot/imported/tileset_medieval_town.png-31007236195e970306f727e864cbd083.ctex"]
+source_file="res://Assets/Graphics/Tilesets/Tiles/tileset_medieval_town.png"
+dest_files=["res://.godot/imported/tileset_medieval_town.png-8df1d4ad5f2b89d5df1bd28cb7d9904e.ctex"]
 
 [params]
 
