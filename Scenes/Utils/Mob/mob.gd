@@ -13,7 +13,6 @@ enum State {
 }
 
 const SizeUtils = preload('res://Scenes/Utils/Size/size_utils.gd')
-const RUN_SOUND = preload("res://Assets/Sfx/step_grass.wav")
 const JUMP_SOUND = preload("res://Assets/Sfx/jump.wav")
 const HURT_SOUND = preload("res://Assets/Sfx/hit.wav")
 const SIZE_DECREASED_SFX = preload("res://Assets/Sfx/size_decrease.wav")
@@ -23,11 +22,12 @@ const SIZE_INCREASED_SFX = preload("res://Assets/Sfx/size_increase.wav")
 @onready var hurt_box: Area2D = $Hurtbox
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var footstep_audio: AudioStreamPlayer2D = $Footstep
+@onready var footstep_audioplayer: AudioStreamPlayer2D = $Footstep
 
 @export var size_level: Enums.SizeLevel = Enums.SizeLevel.M
 
 @export var debug = false
+@export var footstep_audio: AudioStream
 
 var speed: int = 250
 var force_state: State = State.IDLE
@@ -47,6 +47,7 @@ func _ready():
 	health = int(size_level)
 	hurt_box.area_entered.connect(_on_hurtbox_area_entered)
 	attack_cooldown_timer.timeout.connect(_on_attack_cooldown_timer_timeout)
+	footstep_audioplayer.stream = footstep_audio
 
 	##
 	## Size-related stuff
@@ -129,8 +130,8 @@ func run():
 	move_and_slide()
 
 func play_footstep_audio():
-	footstep_audio.pitch_scale = randf_range(.8, 1.2)
-	footstep_audio.play()
+	footstep_audioplayer.pitch_scale = randf_range(.8, 1.2)
+	footstep_audioplayer.play()
 
 func jump():
 	state = State.JUMPING
@@ -138,6 +139,9 @@ func jump():
 	animated_sprite.play("jump")
 	SoundUtils.play_sfx(self, JUMP_SOUND, { 'wait_for_end': false })
 	move_and_slide()
+
+func force_fall():
+	force_state = State.FALLING
 
 func fall(delta):
 	velocity.y += gravity * delta

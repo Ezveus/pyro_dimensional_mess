@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtsndo44v6dwr"]
+[gd_scene load_steps=19 format=3 uid="uid://dtsndo44v6dwr"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/level_1/level_1.gd" id="1_0ndgi"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level1/level_1.gd" id="1_0ndgi"]
 [ext_resource type="TileSet" uid="uid://dxpbi71tgqurj" path="res://Assets/Graphics/Tilesets/Tiles/tileset_medieval.tres" id="2_4wd40"]
 [ext_resource type="Texture2D" uid="uid://cvwtkptlrmrv8" path="res://Assets/Graphics/Tilesets/Backgrounds/Grass Mountains.png" id="3_2rx3h"]
 [ext_resource type="Texture2D" uid="uid://cjsu7cqjg6g11" path="res://Assets/Graphics/Tilesets/Backgrounds/Sky.png" id="3_qihrf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rams1m06368s" path="res://Assets/Graphics/Tilesets/Backgrounds/Rock Mountains.png" id="5_b41v0"]
 [ext_resource type="PackedScene" uid="uid://cb5xiuocagj3l" path="res://Scenes/Characters/Pyromancer/pyromancer.tscn" id="5_l7frl"]
 [ext_resource type="PackedScene" uid="uid://dbtvbf4j1l5a3" path="res://Scenes/Utils/Killzone/killzone.tscn" id="7_tao84"]
+[ext_resource type="AudioStream" uid="uid://dmxhr2t21gpy" path="res://Assets/Sfx/step_grass.wav" id="8_yrt0b"]
 [ext_resource type="PackedScene" uid="uid://dbg5voxajegj2" path="res://Scenes/Music/level_1.tscn" id="9_d2nla"]
 [ext_resource type="PackedScene" uid="uid://byiern4m1i4kd" path="res://Scenes/Characters/Centaur/centaur.tscn" id="10_x45yo"]
 [ext_resource type="PackedScene" uid="uid://dyel75673gmho" path="res://Scenes/Levels/Utils/CastleDoor/castle_door.tscn" id="11_qqugx"]
@@ -73,6 +74,7 @@ centered = false
 [node name="Pyromancer" parent="." instance=ExtResource("5_l7frl")]
 z_index = 2
 position = Vector2(23, 1759)
+footstep_audio = ExtResource("8_yrt0b")
 
 [node name="Camera2D" type="Camera2D" parent="Pyromancer"]
 limit_left = 0
@@ -96,22 +98,33 @@ position = Vector2(385, 1759)
 
 [node name="CentaurM" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(1714, 1748)
+size_level = 3
+debug = false
+footstep_audio = ExtResource("8_yrt0b")
 
 [node name="CentaurXL" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(2370, 1541)
 size_level = 5
+debug = false
+footstep_audio = ExtResource("8_yrt0b")
 
 [node name="CentaurXS" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(3001, 1748)
 size_level = 1
+debug = false
+footstep_audio = ExtResource("8_yrt0b")
 
 [node name="CentaurS" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(3376, 1748)
 size_level = 2
+debug = false
+footstep_audio = ExtResource("8_yrt0b")
 
 [node name="CentaurL" parent="." instance=ExtResource("10_x45yo")]
 position = Vector2(5172, 1670)
 size_level = 4
+debug = false
+footstep_audio = ExtResource("8_yrt0b")
 
 [node name="StartGameDetector" parent="." instance=ExtResource("13_4kdac")]
 position = Vector2(544, 1760)
